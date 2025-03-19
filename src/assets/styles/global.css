@@ -1,3 +1,8 @@
+:root {
+    --variable-collection-orange: #FF6600; 
+    --variable-collection-white: #ffffff;
+  }
+
 *{
     margin: 0;
     padding: 0;

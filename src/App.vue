@@ -3,15 +3,21 @@
     <div class="header">
         <HeaderComponent />
     </div>
+
+    <footer>
+        <FooterComponent />
+    </footer>
     </div>
 </template>
 
 <script>
 import HeaderComponent from './components/Header.vue';
+import FooterComponent from'./components/Footer.vue';
 
 export default{
     components:{
-        HeaderComponent
+        HeaderComponent,
+        FooterComponent
     }
 }
 </script>
@@ -20,12 +26,5 @@ export default{
 
 
 <style scoped>
-
-#app {
-  height: 100vh; 
-  margin: 0; 
-  background-color: #1C1920; 
-}
-
 
 </style>
