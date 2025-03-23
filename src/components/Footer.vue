@@ -29,7 +29,7 @@
         <div class="text-wrapper-5">Политика конфиденциальности</div>
         <div class="text-wrapper-6">Пользовательское соглашение</div>
         <div class="text-wrapper-7">Публичная оферта</div>
-        <div class="text-wrapper-8">Политика возврата</div>
+        <div class="text-wrapper-8" @click="home">Политика возврата</div>
       </div>
   
       <div class="frame-2">
@@ -57,6 +57,11 @@ export default {
       discord,
     };
   },
+  methods: {
+    home() {
+      this.$router.push('/'); 
+    }
+  }
 };
 </script>
 

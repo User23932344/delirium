@@ -1,4 +1,7 @@
 <template>
+<header class="header">
+  <HeaderComponent/>
+</header>
     <div class="screen">
       <div class="div-6">
         <div class="overlap-group-wrapper">
@@ -186,9 +189,15 @@
         </div>
       </div>
     </div>
+    <footer class="footer">
+      <FooterComponent/>
+    </footer>
   </template>
   
   <script>
+import HeaderComponent from "../components/Header.vue";
+import FooterComponent from "../components/Footer.vue";
+
 import rectangle41 from "@/assets/rectangle41.png";
 import rectangle42 from "@/assets/rectangle42.png";
 import image2 from "@/assets/image-2.png";
@@ -205,31 +214,43 @@ import vector26 from "@/assets/vector-26.svg";
 
 export default {
   name: "Home",
+  components: {
+    HeaderComponent,
+    FooterComponent,
+  },
   data() {
     return {
-      rectangle41,
-      rectangle42,
-      image2,
-      image12,
-      image13,
-      image14,
-      image15,
-      image16,
-      image17,
-      image18,
-      image1,
-      vector15,
-      vector26,
+        rectangle41,
+        rectangle42,
+        image2,
+        image12,
+        image13,
+        image14,
+        image15,
+        image16,
+        image17,
+        image18,
+        image1,
+        vector15,
+        vector26,
     };
   },
 };
 </script>
 
-  
+
   <style scoped>
-  .header{
-    position: absolute;
-  }
+  .header {
+    left: 129px;
+  z-index: 1;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  top: 4050px;
+  z-index: 1;
+}
 
   .screen {
     background-color: #19151d;
@@ -876,8 +897,7 @@ export default {
     letter-spacing: 8.00px;
     line-height: normal;
     position: absolute;
-    text-align: justify;
-    top: 232px;
+    top: 180px;
     width: 515px;
   }
   
