@@ -33,7 +33,6 @@
       </div>
   
       <div class="frame-2">
-        <img class="img" alt="Vector" :src="logo" />
         <img class="group" alt="Vkontakte" :src="vkontakte" />
         <img class="group" alt="Telegram" :src="telegramm" />
         <img class="group" alt="Discord" :src="discord" />
@@ -64,11 +63,11 @@ export default {
   
 <style>
 .component {
-  background-image: url('@/assets/background.png');
+  background-image: url('@/assets/background.svg');
   background-size: 100% 100%;
   height: 308px;
   position: relative;
-  width: 1920px;
+  width: 100%;
 }
 
 .component .overlap-group {

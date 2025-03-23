@@ -1,30 +1,19 @@
 <template>
     <div id="app">
-    <div class="header">
-        <HeaderComponent />
+      <router-view></router-view> 
     </div>
-
-    <footer>
-        <FooterComponent />
-    </footer>
-    </div>
-</template>
-
-<script>
-import HeaderComponent from './components/Header.vue';
-import FooterComponent from'./components/Footer.vue';
-
-export default{
-    components:{
-        HeaderComponent,
-        FooterComponent
-    }
-}
-</script>
-
-
-
-
+  </template>
+  
+  <script>
+  export default {
+    name: 'App',
+  };
+  </script>
+  
 <style scoped>
+
+#app{
+background-color: #1C1920;
+}
 
 </style>
