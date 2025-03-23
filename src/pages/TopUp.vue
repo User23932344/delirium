@@ -111,7 +111,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .header {
     left: 129px;
   z-index: 1;
@@ -156,7 +156,7 @@ export default {
     height: 60px;
     left: 1215px;
     position: absolute;
-    top: -690px;
+    top: 206px;
     width: 450px;
 }
 
@@ -191,7 +191,7 @@ export default {
     height: 60px;
     left: 1215px;
     position: absolute;
-    top: -610px;
+    top: 286px;
     width: 450px;
 }
 
@@ -207,8 +207,8 @@ export default {
 .screen .group-7 {
     height: 60px;
     left: 1215px;
-    position: absolute;
-    top: -530px;
+    position: relative;
+    top: 366px;
     width: 450px;
 }
 .sum-input {
@@ -287,8 +287,6 @@ export default {
     letter-spacing: 0;
     line-height: normal;
     position: relative;
-    margin-top: -40px;
-    margin-left: 100px;
 }
 
 .screen .group-8 {
