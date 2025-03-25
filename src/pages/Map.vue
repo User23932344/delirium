@@ -47,10 +47,6 @@ export default{
   background-color: #1C1920;
 }
 
-.map{
-    justify-items:start;
-}
-
 .h2{
     color: var(--variable-collection-white);
     font-family: "IBM Plex Sans-Medium", Helvetica;
@@ -105,6 +101,9 @@ export default{
 }
 
 .serwermap{
-    margin:177px 255px 20px;
+    margin-top: 177px;
+    margin-bottom: 20px;
+    max-width: 100%; 
+    margin-left:255px ;
 }
 </style>
