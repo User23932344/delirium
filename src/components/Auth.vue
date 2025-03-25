@@ -1,31 +1,49 @@
 <template>
-    <div v-if="show" class="modal-overlay" @click.self="close">
-      <div class="modal">
-        <h2>Авторизация</h2>
+  <div v-if="show" class="modal-overlay" @click.self="close">
+    <div class="modal">
+      <h2 v-if="!isRecoveryMode">Авторизация</h2>
+      <div v-else>
+        <h2>Восстановление</h2>
+        <h3>На вашу электронную почту будет отправлено письмо содержащее новый пароль от аккаунта</h3>
+      </div>
+      
+
+      <template v-if="!isRecoveryMode">
         <input type="text" placeholder="Логин" class="input-field" />
         <input type="password" placeholder="Пароль" class="input-field" />
         <div class="under">
-        <input type="checkbox" id="check" class="check">
-                <label for="check">
-                    <p class="checkp">Запомнить меня</p>
-                </label>
-                <a class="a" href="#">Забыли пароль?</a>
-            </div>
+          <input type="checkbox" id="check" class="check">
+          <label for="check">
+            <p class="checkp">Запомнить меня</p>
+          </label>
+          <a class="a" href="#" @click.prevent="isRecoveryMode = true">Забыли пароль?</a>
+        </div>
         <button class="login-btn">Авторизоваться</button>
-      </div>
+      </template>
+
+      <template v-else>
+        <input type="email" placeholder="Введите email" class="input-field" />
+        <button class="login-btn2">Отправить код</button>
+      </template>
+
     </div>
-  </template>
-  
-  <script setup>
-    import { defineProps, defineEmits } from "vue";
-  
-    defineProps({ show: Boolean });
-    const emit = defineEmits(["close"]);
-  
-    const close = () => {
-      emit("close");
-    };
-  </script>
+  </div>
+</template>
+
+<script setup>
+import { defineProps, defineEmits, ref } from "vue";
+
+defineProps({ show: Boolean });
+const emit = defineEmits(["close"]);
+
+const isRecoveryMode = ref(false);
+
+const close = () => {
+isRecoveryMode.value = false;
+emit("close");
+};
+</script>
+
   
   <style scoped>
   .modal-overlay {
@@ -55,7 +73,19 @@ h2{
   font-weight: 500;
   letter-spacing: 0;
   line-height: 49px;
-  margin: 25px 60px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+h3{
+  width: 340px;
+  font-family:"IBM Plex Sans-Medium", Helvetica; ;
+font-size: 17px;
+line-height: 120%;
+color: #fff;
+text-align: left;
+display: inline-block;
+height: 65px;
 }
 
 .input-field {
@@ -66,7 +96,7 @@ h2{
   border-radius: 10px;
   height: 55px;
   width: 340px;
-  margin-bottom: 20px;
+  margin:10px 0 20px;
   display: block;
   position: relative;
 }
@@ -147,6 +177,20 @@ label::before {
     letter-spacing: 0;
     line-height: 19.2px;
   }
-  
+  .login-btn2{width: 340px;
+    height: 60px;
+    background-color: var(--variable-collection-orange);
+    color: var(--variable-collection-white);
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 19.2px;
+  }
   </style>
   

@@ -425,7 +425,7 @@ font-size: 20px;
     position: absolute;
     left: 350px;
     margin-top: -20px;
-    
+    text-align: left;
 }
 
 </style>

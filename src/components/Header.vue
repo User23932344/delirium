@@ -1,13 +1,13 @@
 <template>
   <div class="header">
-    <img class="group" alt="Group" :src="groupSrc" />
+    <img class="group" alt="Group" :src="logo" />
 
     <div class="div">
       <div class="text-wrapper" @click="home">Начать играть</div>
       <div class="text-wrapper">Форум</div>
-      <div class="text-wrapper">Рейтинг</div>
+      <div class="text-wrapper" @click="rating">Рейтинг</div>
       <div class="text-wrapper" @click="topUp">Пополнить счет</div>
-      <div class="text-wrapper">Wiki</div>
+      <div class="text-wrapper" @click="wiki">Wiki</div>
     </div>
 
     <div class="div-wrapper" @click="showAuth = true">
@@ -15,9 +15,13 @@
     </div>
 
     <div class="div-2">
-      <img class="vector" alt="Vector" :src="vectorSrc" />
-      <img class="img" alt="Group" :src="imgSrc" />
-      <img class="vector-2" alt="Vector" :src="vector1Src" />
+      <a href="https://vk.com/deliriumcom">
+      <img class="vector" alt="Vector" :src="vkontakte" />
+    </a><a href="https://t.me/deliriumamber">
+      <img class="img" alt="Group" :src="telegramm" />
+    </a><a href="https://discord.gg/cFF9bB6yMN">
+      <img class="vector-2" alt="Vector" :src="discord" />
+      </a>
     </div>
 
     <Auth :show="showAuth" @close="showAuth = false" />
@@ -27,10 +31,10 @@
 <script>
 import { ref } from "vue";
 import Auth from "@/components/Auth.vue";
-import logoImage from "@/assets/logo.png";
-import vkontakteImage from "@/assets/vkontakte.png";  
-import telegrammImage from "@/assets/telegramm.png";  
-import discordImage from "@/assets/discord.png";  
+import logo from "@/assets/logo.png";
+import vkontakte from "@/assets/vkontakte.png";  
+import telegramm from "@/assets/telegramm.png";  
+import discord from "@/assets/discord.png";  
 
 export default {
   name: "HeaderComponent",
@@ -45,27 +49,27 @@ export default {
     const showAuth = ref(false);
     return { showAuth };
   },
-  computed: {
-    groupSrc() {
-      return this.group ? new URL(`../assets/${this.group}`, import.meta.url).href : logoImage;
-    },
-    vectorSrc() {
-      return this.vector ? new URL(`@/assets/${this.vector}`, import.meta.url).href : vkontakteImage;
-    },
-    imgSrc() {
-      return this.img ? new URL(`@/assets/${this.img}`, import.meta.url).href : telegrammImage;
-    },
-    vector1Src() {
-      return this.vector1 ? new URL(`@/assets/${this.vector1}`, import.meta.url).href : discordImage;
-    },
+  data() {
+    return {
+      logo, 
+      vkontakte,
+      telegramm,
+      discord,
+    };
   },
   methods: {
     topUp() {
       this.$router.push("/top-up"); 
     },
+    rating(){
+        this.$router.push("/rating"); 
+      },
     home() {
       this.$router.push("/"); 
     },
+    wiki(){
+      this.$router.push("/wiki")      
+    }
   },
 };
 </script>

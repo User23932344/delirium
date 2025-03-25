@@ -513,13 +513,12 @@ export default {
   
   .screen .text-wrapper-18 {
     color: var(--variable-collection-white);
-    font-family: var(--h2-font-family);
-    font-size: var(--h2-font-size);
-    font-style: var(--h2-font-style);
-    font-weight: var(--h2-font-weight);
+    font-family: "Balsamiq Sans-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 700;
     left: 255px;
-    letter-spacing: var(--h2-letter-spacing);
-    line-height: var(--h2-line-height);
+    letter-spacing:0;
+    line-height: normal;
     position: absolute;
     top: 2543px;
     white-space: nowrap;
@@ -557,7 +556,7 @@ export default {
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 38px;
+    top: 25px;
     width: 277px;
   }
   
@@ -624,7 +623,7 @@ export default {
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 105px;
+    top: 120px;
     width: 704px;
   }
   
@@ -657,7 +656,7 @@ export default {
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 38px;
+    top: 25px;
     width: 219px;
   }
   

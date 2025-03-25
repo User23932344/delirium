@@ -19,23 +19,27 @@
       <div class="text-wrapper-4">Контакты</div>
   
       <div class="div-2">
-        <div class="text-wrapper-5">Начать играть</div>
+        <div class="text-wrapper-5" @click="home">Начать играть</div>
         <div class="text-wrapper-6">Форум</div>
-        <div class="text-wrapper-7">Рейтинг</div>
-        <div class="text-wrapper-8">Пополнить счет</div>
+        <div class="text-wrapper-7" @click="rating">Рейтинг</div>
+        <div class="text-wrapper-8" @click="topUp">Пополнить счет</div>
       </div>
   
       <div class="div-3">
         <div class="text-wrapper-5">Политика конфиденциальности</div>
         <div class="text-wrapper-6">Пользовательское соглашение</div>
         <div class="text-wrapper-7">Публичная оферта</div>
-        <div class="text-wrapper-8" @click="home">Политика возврата</div>
+        <div class="text-wrapper-8" >Политика возврата</div>
       </div>
   
       <div class="frame-2">
+        <a href="https://vk.com/deliriumcom">
         <img class="group" alt="Vkontakte" :src="vkontakte" />
+      </a><a href="https://t.me/deliriumamber">
         <img class="group" alt="Telegram" :src="telegramm" />
+      </a><a href="https://discord.gg/cFF9bB6yMN">
         <img class="group" alt="Discord" :src="discord" />
+      </a>
       </div>
     </div>
   </template>
@@ -58,9 +62,15 @@ export default {
     };
   },
   methods: {
+    topUp() {
+      this.$router.push("/top-up"); 
+    },
+    rating(){
+        this.$router.push("/rating"); 
+      },
     home() {
-      this.$router.push('/'); 
-    }
+      this.$router.push("/"); 
+    },
   }
 };
 </script>
