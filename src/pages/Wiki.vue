@@ -15,7 +15,7 @@
                 <p class="text">Десятки торговцев, барменов и контрабандистов</p>
                 <img class="arrow2" alt="Vector" :src="arrow" />
             </div>
-            <div class="block3">
+            <div class="block3" @click="transport">
                 <h4 class="h4">Транспорт</h4>
                 <p class="text">Десятки торговцев, барменов и контрабандистов</p>
                 <img class="arrow3" alt="Vector" :src="arrow" />
@@ -85,6 +85,9 @@ export default{
       },
       maps(){
         this.$router.push("/map"); 
+      },
+      transport(){
+        this.$router.push("/transport"); 
       },
   },
 };

@@ -18,7 +18,7 @@
           </label>
           <a class="a" href="#" @click.prevent="isRecoveryMode = true">Забыли пароль?</a>
         </div>
-        <button class="login-btn">Авторизоваться</button>
+        <button class="login-btn" @click="pa">Авторизоваться</button>
       </template>
 
       <template v-else>
@@ -32,15 +32,21 @@
 
 <script setup>
 import { defineProps, defineEmits, ref } from "vue";
+import { useRouter } from "vue-router";
 
 defineProps({ show: Boolean });
 const emit = defineEmits(["close"]);
 
 const isRecoveryMode = ref(false);
+const router = useRouter(); 
 
 const close = () => {
-isRecoveryMode.value = false;
-emit("close");
+    isRecoveryMode.value = false;
+    emit("close");
+};
+
+const pa = () => {
+    router.push("/personalaccount");
 };
 </script>
 

@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/pages/Home.vue';
 import TopUp from '@/pages/TopUp.vue';
-import Rating from '@/pages/Rating.vue'; // Импорт компонента Rating
+import Rating from '@/pages/Rating.vue';
 import Wiki from '@/pages/Wiki.vue';
 import Maps from '@/pages/Map.vue';
+import PersonalAccount from '@/pages/PersonalAccount.vue';
+import Transport from '@/pages/Transport.vue';
 
 const routes = [
   {
@@ -30,6 +32,16 @@ const routes = [
     path:'/map',
     name:'Map',
     component: Maps,
+  },
+  {
+    path:'/personalaccount',
+    name:'PersonalAccount',
+    component: PersonalAccount,
+  },
+  {
+    path:'/transport',
+    name:'Transport',
+    component: Transport,
   },
 ];
 
