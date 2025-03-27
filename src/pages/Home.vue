@@ -3,192 +3,187 @@
   <HeaderComponent/>
 </header>
     <div class="screen">
-      <div class="div-6">
-        <div class="overlap-group-wrapper">
-          <div class="overlap-group-2">
-            <img class="rectangle" alt="Rectangle" :src="rectangle41" />
-            <img class="rectangle-2" alt="Rectangle" :src="rectangle42" />
-            <div class="frame-3">
-              <div class="text-wrapper-13">Подробнее</div>
-            </div>
-            <p class="p">Играй в Delirium на крупнейшем RPG-проекте</p>
-          </div>
+      <div class="impression">
+        <div class="impression-text">
+         <h1 class="h1">Играй в Delirium на крупнейшем RPG-проекте</h1>
+         <p class="descript">Многопользовательская онлайн играс огромным открытым миром, 
+          в которомты можешь стать кем захочешь!</p>
+         <button class="start">Начать играть</button>
+         <div class="online">
+          <p class="online-text">Сейчас играют: </p>
+          <p class="online-count">{{ onlinePlayers }}</p>
         </div>
-        <div class="overlap">
-          <div class="overlap-wrapper">
-            <div class="overlap-2">
-              <div class="text-wrapper-14">Аномалии</div>
-              <p class="text-wrapper-15">
-                А ещё тщательные исследования конкурентов представляют собой не
-                что иное, как квинтэссенцию победы маркетинга над разумом и
-                должны быть своевременно верифицированы.
-              </p>
-            </div>
-          </div>
         </div>
-        <div class="group-4">
-          <div class="overlap-3">
-            <div class="text-wrapper-16">Квесты</div>
-            <p class="text-wrapper-17">В свободное от выживания время</p>
-          </div>
+        <div class="impression-mosaiс">
+          <img :src="image1" class="img">
+          <img :src="image12" class="img2">
+          <img :src="image13" class="img3">
+          <img :src="image14" class="img4">
+          <img :src="image15" class="img5">
+          <img :src="image16" class="img6">
+          <img :src="image17" class="img7">
+          <img :src="image18" class="img8">
         </div>
-        <div class="group-5">
-          <div class="overlap-4">
-            <div class="text-wrapper-16">Инфраструктура</div>
-            <p class="text-wrapper-17">
-              Десятки торговцев, барменов и контрабандистов
-            </p>
-          </div>
+      </div>
+      <div class="transition">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="transition-text">
+        <h2 class="h2">Играй в Delirium на крупнейшем RPG-проекте</h2>
+        <button class="more-details">Подробнее</button>
+      </div>
+    </div>
+    <div class="about-the-project">
+  <h3 class="h3">О проекте</h3>
+  <div class="about-contents">
+    <div class="about">
+      <div
+        class="box"
+        @mouseover="changeImage('img.jpg')"  
+        @mouseleave="resetImage"               
+      >
+        <h4 class="h4">Инфраструктура</h4>
+        <p class="h4descr">Десятки торговцев, барменов и контрабандистов</p>
+      </div>
+      <div
+        class="box"
+        @mouseover="changeImage('img.jpg')"
+        @mouseleave="resetImage"
+      >
+        <h4 class="h4">Квесты</h4>
+        <p class="h4descr">В свободное от выживания время</p>
+      </div>
+      <div
+        class="box"
+        @mouseover="changeImage('img.jpg')"
+        @mouseleave="resetImage"
+      >
+        <h4 class="h4">Аномалии</h4>
+        <p class="h4descr">Просто смотри под ноги</p>
+      </div>
+      <div
+        class="box"
+        @mouseover="changeImage('img.jpg')"
+        @mouseleave="resetImage"
+      >
+        <h4 class="h4">Артефакты</h4>
+        <p class="h4descr">Много артефактов. Очень много.</p>
+      </div>
+      <div
+        class="box"
+        @mouseover="changeImage('img.jpg')"
+        @mouseleave="resetImage"
+      >
+        <h4 class="h4">Разнообразие вещей</h4>
+        <p class="h4descr">От ножа до джет-пака, более сотни видов вещей</p>
+      </div>
+      <div
+        class="box"
+        @mouseover="changeImage('img.jpg')"
+        @mouseleave="resetImage"
+      >
+        <h4 class="h4">Война группировок</h4>
+        <p class="h4descr">Выживает сильнейший</p>
+      </div>
+    </div>
+    <img :src="image" alt="Проект" />
+  </div>
+</div>
+<div class="how-to-start">
+    <h3 class="h3">Как начать играть?</h3>
+    <div class="how">
+      <div class="how-boxes">
+      <div class="how-box">
+        <svg width="780" height="211" viewBox="0 0 780 211" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M717 181C717 197.568 703.569 211 687 211L30 211C13.4315 211 1.17422e-06 197.568 2.62268e-06 181L1.58235e-05 29.9999C1.7272e-05 13.4314 13.4315 -5.17568e-05 30 -5.03083e-05L750 1.26361e-05C766.569 1.40846e-05 780 13.4315 780 30L780 119C780 135.569 766.569 149 750 149L747 149C730.431 149 717 162.431 717 179L717 181Z" stroke="#FF6600" stroke-width="2"/>
+  <text x="40" y="53" font-size="25" fill="white" font-family="IBM Plex Sans-Semibold, Helvetica">
+  <tspan>Скачайте SA-MP и игру GTA san Andreas</tspan> 
+</text>
+<text x="40" y="133" font-size="18" fill="white" font-family="IBM Plex Sans-Regular, Helvetica">
+  <tspan x="40" y="133">Для игры вам потребуется самый свежий клиент SA-MP и игра GTA san</tspan>
+  <tspan x="40" y="159">Andreas</tspan>
+</text>  
+<svg x="730" y="161" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="25" cy="25" r="25" fill="#FF6600"/>
+  <path d="M19 31.5L31.5 18M31.5 18L32 27M31.5 18L21 19.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>
+</svg>
+      </div>
+      <div class="how-boxes2">
+      <div class="how-box">
+        <svg width="375" height="211" viewBox="0 0 375 211" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M311 181C311 197.016 298.016 210 282 210L30 210C13.9837 210 1 197.016 1 181L1.00002 30C1.00002 13.9837 13.9838 0.999968 30 0.99997L345 0.999997C361.016 0.999999 374 13.9837 374 30L374 119C374 135.016 361.016 148 345 148L342 148C324.879 148 311 161.879 311 179L311 181Z" stroke="#FF6600" stroke-width="2"/>
+<text x="40" y="53" font-size="25" fill="white" font-family="IBM Plex Sans-Semibold, Helvetica">
+  <tspan>Подключитесь к </tspan> 
+  <tspan x="40" y="86">серверу Delirium-samp</tspan>
+</text>
+<text x="40" y="133" font-size="18" fill="white" font-family="IBM Plex Sans-Regular, Helvetica">
+  <tspan x="40" y="133">Выберите в лаунчере сервер</tspan>
+  <tspan x="40" y="159">и начните играть</tspan>
+</text>
+<svg x="325" y="161" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="25" cy="25" r="25" fill="#FF6600"/>
+  <path d="M19 31.5L31.5 18M31.5 18L32 27M31.5 18L21 19.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>
+</svg>
+      </div>
+      <div class="how-box">
+        <svg width="375" height="211" viewBox="0 0 375 211" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M311 181C311 197.016 298.016 210 282 210L30 210C13.9837 210 1 197.016 1 181L1.00002 30C1.00002 13.9837 13.9838 0.999968 30 0.99997L345 0.999997C361.016 0.999999 374 13.9837 374 30L374 119C374 135.016 361.016 148 345 148L342 148C324.879 148 311 161.879 311 179L311 181Z" stroke="#FF6600" stroke-width="2"/>
+  <text x="40" y="53" font-size="25" fill="white" font-family="IBM Plex Sans-Semibold, Helvetica">
+  <tspan>Запустите сервер  </tspan> 
+  <tspan x="40" y="86">Delirium-samp</tspan>
+</text>
+<text x="40" y="133" font-size="18" fill="white" font-family="IBM Plex Sans-Regular, Helvetica">
+  <tspan x="40" y="133">Запустите приложение, кликнув на</tspan>
+  <tspan x="40" y="159">иконку на рабочем столе.</tspan>
+</text>
+<svg x="325" y="161" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="25" cy="25" r="25" fill="#FF6600"/>
+  <path d="M19 31.5L31.5 18M31.5 18L32 27M31.5 18L21 19.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>
+  </svg>
+      </div>
+    </div>
+    </div>
+      <img :src="image2">
+    </div>
+  </div>
+
+  <div class="answers">
+    <h3 class="h3">Ответы на частые вопросы</h3>
+    <div class="blox">
+      <div class="first">
+        <div 
+          v-for="(block, index) in firstBlocks" 
+          :key="'first-' + index" 
+          class="answer-btn" 
+          :class="{ expanded: block.expanded }" 
+          @click="toggleExpand(index, 'first')">
+          <div class="combination">
+          <h5 class="question">{{ block.question }}</h5>
+          <img :src="vector26" class="arr">
         </div>
-        <div class="group-6">
-          <div class="overlap-5">
-            <div class="text-wrapper-16">Аномалии</div>
-            <div class="text-wrapper-17">Просто смотри под ноги</div>
-          </div>
+          <p class="answer" v-if="block.expanded">{{ block.answer }}</p>
         </div>
-        <div class="group-7">
-          <div class="overlap-6">
-            <div class="text-wrapper-16">Артефакты</div>
-            <div class="text-wrapper-17">
-              Много артефактов. Очень много.
-            </div>
-          </div>
-        </div>
-        <div class="group-8">
-          <div class="overlap-7">
-            <div class="text-wrapper-16">Разнообразие вещей</div>
-            <p class="text-wrapper-17">
-              От ножа до джет-пака, более сотни видов вещей
-            </p>
-          </div>
-        </div>
-        <div class="group-9">
-          <div class="overlap-8">
-            <div class="text-wrapper-16">Война группировок</div>
-            <div class="text-wrapper-17">Выживает сильнейший</div>
-          </div>
-        </div>
-        <div class="text-wrapper-18">КАК НАЧАТЬ ИГРАТЬ?</div>
-        <div class="text-wrapper-19">О ПРОЕКТЕ</div>
-        <div class="overlap-9">
-          <div class="text-wrapper-20">
-            Подключитесь к серверу Delirium-samp
-          </div>
-          <p class="text-wrapper-21">
-            Выберите в лаунчере сервер и начните играть
-          </p>
-          <div class="vector-wrapper">
-            <img class="vector-5" alt="Vector" :src="vector15" />
-          </div>
-        </div>
-        <div class="overlap-10">
-          <p class="text-wrapper-22">
-            Скачайте SA-MP и игру GTA san Andreas
-          </p>
-          <p class="text-wrapper-23">
-            Для игры вам потребуется самый свежий клиент SA-MP и игра GTA san
-            Andreas
-          </p>
-          <div class="img-wrapper">
-            <img class="vector-5" alt="Vector" :src="vector15" />
-          </div>
-        </div>
-        <div class="overlap-11">
-          <div class="text-wrapper-24">Запустите сервер Delirium-samp</div>
-          <div class="overlap-12">
-            <p class="text-wrapper-25">
-              Запустите приложение, кликнув на иконку на рабочем столе.
-            </p>
-            <div class="frame-4">
-              <img class="vector-5" alt="Vector" :src="vector15" />
-            </div>
-          </div>
-        </div>
-        <img class="image" alt="Image" :src="image2" />
-        <div class="text-wrapper-26">ОТВЕТЫ НА ЧАСТЫЕ ВОПРОСЫ</div>
-        <div class="item">
-          <p class="text-wrapper-27">В чем цель игры на сервере?</p>
-          <img class="vector-6" alt="Vector" :src="vector26" />
-        </div>
-        <div class="item-2">
-          <img class="vector-6" alt="Vector" :src="vector26" />
-          <p class="text-wrapper-28">
-            В рамках спецификации современных стандартов, сделанные на базе
-            интернет-аналитики выводы будут подвергнуты целой серии независимых
-            исследований.
-          </p>
-          <p class="text-wrapper-27">
-            Будут ли в будущем на сервере зомби?
-          </p>
-        </div>
-        <div class="item-3">
-          <p class="text-wrapper-27">
-            Где базы группировок? Как попасть в группировку?
-          </p>
-          <img class="vector-7" alt="Vector" :src="vector26" />
-        </div>
-        <div class="item-4">
-          <p class="text-wrapper-29">
-            Возможно ли каким-либо образом дешифраторами взломать дом со 100%
-            защитой замка?
-          </p>
-          <img class="vector-7" alt="Vector" :src="vector26" />
-        </div>
-        <div class="item-5">
-          <p class="text-wrapper-27">
-            Где найти блоки и как их использовать?
-          </p>
-          <img class="vector-7" alt="Vector" :src="vector26" />
-        </div>
-        <div class="item-6">
-          <p class="text-wrapper-29">
-            Возможно ли каким-либо образом дешифраторами взломать дом со 100%
-            защитой замка?
-          </p>
-          <img class="vector-7" alt="Vector" :src="vector26" />
-        </div>
-        <div class="item-7">
-          <p class="text-wrapper-30">
-            Есть ли карта на которой показаны все вышки с Делириумом?
-          </p>
-          <img class="vector-7" alt="Vector" :src="vector26" />
-        </div>
-        <div class="item-8">
-          <p class="text-wrapper-27">
-            Где найти тюрьму, откуда нужно таскать камни?
-          </p>
-          <img class="vector-7" alt="Vector" :src="vector26" />
-        </div>
-        <div class="item-9">
-          <div class="text-wrapper-27">Как грабить вышки Делириума?</div>
-          <img class="vector-7" alt="Vector" :src="vector26" />
-        </div>
-        <p class="text-wrapper-31">
-          Играй в Delirium на крупнейшем RPG-проекте
-        </p>
-        <div class="frame-5">
-          <div class="text-wrapper-32">Начать играть</div>
-        </div>
-        <p class="text-wrapper-33">
-          Многопользовательская онлайн играс огромным открытым миром, в
-          которомты можешь стать кем захочешь!
-        </p>
-        <div class="frame-6">
-          <div class="text-wrapper-34">Сейчас играют:</div>
-          <div class="text-wrapper-35">23</div>
-        </div>
-        <div class="frame-7">
-          <img class="image-2" alt="Image" :src="image12" />
-          <img class="image-3" alt="Image" :src="image13" />
-          <img class="image-4" alt="Image" :src="image14" />
-          <img class="image-5" alt="Image" :src="image15" />
-          <img class="image-6" alt="Image" :src="image16" />
-          <img class="image-7" alt="Image" :src="image17" />
-          <img class="image-8" alt="Image" :src="image18" />
-          <img class="image-9" alt="Image" :src="image1" />
+      </div>
+      <div class="second">
+        <div 
+          v-for="(block, index) in secondBlocks" 
+          :key="'second-' + index" 
+          class="answer-btn" 
+          :class="{ expanded: block.expanded }" 
+          @click="toggleExpand(index, 'second')">
+          <div class="combination">
+          <h5 class="question">{{ block.question }}</h5>
+          <img :src="vector26" class="arr"></div>
+          <p class="answer" v-if="block.expanded">{{ block.answer }}</p>
         </div>
       </div>
     </div>
+  </div>
+
+</div>
     <footer class="footer">
       <FooterComponent/>
     </footer>
@@ -198,8 +193,9 @@
 import HeaderComponent from "../components/Header.vue";
 import FooterComponent from "../components/Footer.vue";
 
-import rectangle41 from "@/assets/rectangle41.png";
-import rectangle42 from "@/assets/rectangle42.png";
+import image from "@/assets/image.png";
+import rectangle41 from "@/assets/rectangle41.svg";
+import rectangle42 from "@/assets/rectangle42.svg";
 import image2 from "@/assets/image-2.png";
 import image12 from "@/assets/image1-2.png";
 import image13 from "@/assets/image1-3.png";
@@ -209,7 +205,7 @@ import image16 from "@/assets/image1-6.png";
 import image17 from "@/assets/image1-7.png";
 import image18 from "@/assets/image1-8.png";
 import image1 from "@/assets/image1-1.png";
-import vector15 from "@/assets/frame-19.png";
+import frame19 from "@/assets/frame19.svg";
 import vector26 from "@/assets/vector-26.svg";
 
 export default {
@@ -220,20 +216,63 @@ export default {
   },
   data() {
     return {
-        rectangle41,
-        rectangle42,
-        image2,
-        image12,
-        image13,
-        image14,
-        image15,
-        image16,
-        image17,
-        image18,
-        image1,
-        vector15,
-        vector26,
+      image,
+      rectangle41,
+      rectangle42,
+      image2,
+      image12,
+      image13,
+      image14,
+      image15,
+      image16,
+      image17,
+      image18,
+      image1,
+      frame19,
+      vector26,
+      onlinePlayers: 0,
+      firstBlocks: [
+        { question: 'В чем цель игры на сервере?', answer: 'В рамках спецификации современных стандартов, сделанные на базе интернет-аналитики выводы будут подвергнуты целой серии независимых исследований.', expanded: false },
+        { question: 'Где базы группировок? Как попасть в группировку?', answer: 'В рамках спецификации современных стандартов, сделанные на базе интернет-аналитики выводы будут подвергнуты целой серии независимых исследований.', expanded: false },
+        { question: 'Возможно ли каким-либо образом дешифраторами взломать дом со 100% защитой замка?', answer: 'В рамках спецификации современных стандартов, сделанные на базе интернет-аналитики выводы будут подвергнуты целой серии независимых исследований.', expanded: false },
+        { question: 'Где найти блоки и как их использовать?', answer: 'В рамках спецификации современных стандартов, сделанные на базе интернет-аналитики выводы будут подвергнуты целой серии независимых исследований.', expanded: false },
+        { question: 'Где найти тюрьму, откуда нужно таскать камни?', answer: 'В рамках спецификации современных стандартов, сделанные на базе интернет-аналитики выводы будут подвергнуты целой серии независимых исследований.', expanded: false },
+      ],
+      secondBlocks: [
+        { question: 'Будут ли в будущем на сервере зомби?', answer: 'В рамках спецификации современных стандартов, сделанные на базе интернет-аналитики выводы будут подвергнуты целой серии независимых исследований.', expanded: false },
+        { question: 'Возможно ли каким-либо образом дешифраторами взломать дом со 100% защитой замка?', answer: 'В рамках спецификации современных стандартов, сделанные на базе интернет-аналитики выводы будут подвергнуты целой серии независимых исследований.', expanded: false },
+        { question: 'Есть ли карта на которой показаны все вышки с Делириумом?', answer: 'В рамках спецификации современных стандартов, сделанные на базе интернет-аналитики выводы будут подвергнуты целой серии независимых исследований.', expanded: false },
+        { question: 'Как грабить вышки Делириума?', answer: 'В рамках спецификации современных стандартов, сделанные на базе интернет-аналитики выводы будут подвергнуты целой серии независимых исследований.', expanded: false },
+      ],
     };
+  },
+  methods: {
+    async fetchOnlinePlayers() {
+      try {
+        const response = await fetch("http://localhost:3000/users/online");
+        const data = await response.json();
+        this.onlinePlayers = data.length;
+      } catch (error) {
+        console.error("Ошибка загрузки онлайн игроков:", error);
+      }
+    },
+    changeImage(imageName) {
+      this.image = require(`@/assets/${imageName}`);
+    },
+    resetImage() {
+      this.image = require('@/assets/image.png');
+    },
+    toggleExpand(index, section) {
+      if (section === 'first') {
+        this.firstBlocks[index].expanded = !this.firstBlocks[index].expanded;
+      } else if (section === 'second') {
+        this.secondBlocks[index].expanded = !this.secondBlocks[index].expanded;
+      }
+    },
+  },
+  mounted() {
+    this.fetchOnlinePlayers();
+    setInterval(this.fetchOnlinePlayers, 10000);
   },
 };
 </script>
@@ -241,825 +280,313 @@ export default {
 
   <style scoped>
   .header {
-    left: 129px;
+    padding-top: 30px;
+    left: 255px;
   z-index: 1;
 }
 
 .footer {
-  position: absolute;
-  width: 100%;
-  top: 4050px;
   z-index: 1;
 }
 
   .screen {
+    margin-top: 40px;
     background-color: #19151d;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     width: 100%;
   }
-  
-  .screen .div-6 {
-    background-color: #19151d;
-    height: 4294px;
-    overflow: hidden;
-    position: relative;
-    width: 1920px;
+
+  .impression{
+    margin-left: 225px;
+    display: flex;
+    column-gap: 35px;
   }
-  
-  .screen .overlap-group-wrapper {
-    height: 288px;
-    left: 0;
-    position: absolute;
-    top: 884px;
-    width: 1922px;
-  }
-  
-  .screen .overlap-group-2 {
-    height: 288px;
-    position: relative;
-    width: 1920px;
-  }
-  
-  .screen .rectangle {
-    height: 274px;
-    left: 0;
-    position: absolute;
-    top: 14px;
-    width: 1920px;
-  }
-  
-  .screen .rectangle-2 {
-    height: 285px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 1920px;
-  }
-  
-  .screen .frame-3 {
-    align-items: center;
-    border: 2px solid;
-    border-color: var(--variable-collection-white);
-    border-radius: 20px;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 1221px;
-    padding: 15px 40px;
-    position: absolute;
-    top: 112px;
-  }
-  
-  .screen .text-wrapper-13 {
+
+  .impression-text{
     color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-Regular", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 32px;
-    margin-top: -2.00px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
   }
-  
-  .screen .p {
-    color: var(--variable-collection-white);
-    font-family: "Balsamiq Sans-Bold", Helvetica;
-    font-size: 45px;
-    font-weight: 700;
-    left: 350px;
-    letter-spacing: 8.00px;
-    line-height: normal;
-    position: absolute;
-    top: 97px;
-    width: 758px;
-  }
-  
-  .screen .overlap {
-    background-image: url('@/assets/image.png');
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 1060px;
-    left: 765px;
-    position: absolute;
-    top: 1372px;
-    width: 900px;
-  }
-  
-  .screen .overlap-wrapper {
-    height: 150px;
-    left: 30px;
-    position: relative;
-    top: 880px;
-    width: 670px;
-  }
-  
-  .screen .overlap-2 {
-    background-color: #19161de6;
-    border-radius: 30px;
-    height: 150px;
-    position: relative;
-    width: 666px;
-  }
-  
-  .screen .text-wrapper-14 {
-    color: #ffffffe6;
-    font-family: "IBM Plex Sans-SemiBold", Helvetica;
-    font-size: 20px;
-    font-weight: 600;
-    left: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 20px;
-  }
-  
-  .screen .text-wrapper-15 {
-    color: #ececece6;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
-    font-size: 18px;
-    font-weight: 400;
-    left: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 61px;
-    width: 586px;
-  }
-  
-  .screen .group-4 {
-    height: 160px;
-    left: 255px;
-    position: absolute;
-    top: 1552px;
-    width: 484px;
-  }
-  
-  .screen .overlap-3 {
-    background-image: url('@/assets/rectangle-55.svg');
-    background-size: 100% 100%;
-    height: 160px;
-    position: relative;
-    width: 480px;
-  }
-  
-  .screen .text-wrapper-16 {
-    color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-SemiBold", Helvetica;
-    font-size: 25px;
-    font-weight: 600;
-    left: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 27px;
-  }
-  
-  .screen .text-wrapper-17 {
-    color: #ececec;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
-    font-size: 22px;
-    font-weight: 400;
-    left: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 75px;
-    width: 385px;
-  }
-  
-  .screen .group-5 {
-    height: 160px;
-    left: 255px;
-    position: absolute;
-    top: 1372px;
-    width: 484px;
-  }
-  
-  .screen .overlap-4 {
-    background-image: url('@/assets/rectangle-56.svg');
-    background-size: 100% 100%;
-    height: 160px;
-    position: relative;
-    width: 480px;
-  }
-  
-  .screen .group-6 {
-    height: 160px;
-    left: 255px;
-    position: absolute;
-    top: 1732px;
-    width: 484px;
-  }
-  
-  .screen .overlap-5 {
-    background-image: url('@/assets/rectangle-56.svg');
-    background-size: 100% 100%;
-    height: 160px;
-    position: relative;
-    width: 480px;
-  }
-  
-  .screen .group-7 {
-    height: 160px;
-    left: 255px;
-    position: absolute;
-    top: 1912px;
-    width: 484px;
-  }
-  
-  .screen .overlap-6 {
-    background-image: url('@/assets/rectangle-56.svg');
-    background-size: 100% 100%;
-    height: 160px;
-    position: relative;
-    width: 480px;
-  }
-  
-  .screen .group-8 {
-    height: 160px;
-    left: 255px;
-    position: absolute;
-    top: 2092px;
-    width: 484px;
-  }
-  
-  .screen .overlap-7 {
-    background-image: url('@/assets/rectangle-56.svg');
-    background-size: 100% 100%;
-    height: 160px;
-    position: relative;
-    width: 480px;
-  }
-  
-  .screen .group-9 {
-    height: 160px;
-    left: 255px;
-    position: absolute;
-    top: 2272px;
-    width: 484px;
-  }
-  
-  .screen .overlap-8 {
-    background-image: url('@/assets/rectangle-56.svg');
-    background-size: 100% 100%;
-    height: 160px;
-    position: relative;
-    width: 480px;
-  }
-  
-  .screen .text-wrapper-18 {
-    color: var(--variable-collection-white);
-    font-family: "Balsamiq Sans-Bold", Helvetica;
-    font-size: 40px;
-    font-weight: 700;
-    left: 255px;
-    letter-spacing:0;
-    line-height: normal;
-    position: absolute;
-    top: 2543px;
-    white-space: nowrap;
-  }
-  
-  .screen .text-wrapper-19 {
-    color: var(--variable-collection-white);
-    font-family: "Balsamiq Sans-Bold", Helvetica;
-    font-size: 40px;
-    font-weight: 700;
-    left: 255px;
-    letter-spacing: 8.00px;
-    line-height: normal;
-    position: absolute;
-    top: 1283px;
-    white-space: nowrap;
-  }
-  
-  .screen .overlap-9 {
-    background-image: url('@/assets/rectangle-54.svg');
-    background-size: 100% 100%;
-    height: 211px;
-    left: 255px;
-    position: absolute;
-    top: 2873px;
-    width: 375px;
-  }
-  
-  .screen .text-wrapper-20 {
-    color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-SemiBold", Helvetica;
-    font-size: 25px;
-    font-weight: 600;
-    left: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 25px;
-    width: 277px;
-  }
-  
-  .screen .text-wrapper-21 {
-    color: #ececec;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    left: 41px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 118px;
-    width: 276px;
-  }
-  
-  .screen .vector-wrapper {
-    background-color: var(--variable-collection-orange);
-    border-radius: 25px;
-    height: 50px;
-    left: 325px;
-    position: absolute;
-    top: 161px;
-    width: 50px;
-  }
-  
-  .screen .vector-5 {
-    height: 16px;
-    left: 18px;
-    position: absolute;
-    top: 17px;
-    width: 15px;
-  }
-  
-  .screen .overlap-10 {
-    background-image: url('@/assets/image.svg');
-    background-size: 100% 100%;
-    height: 211px;
-    left: 255px;
-    position: absolute;
-    top: 2632px;
-    width: 780px;
-  }
-  
-  .screen .text-wrapper-22 {
-    color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-SemiBold", Helvetica;
-    font-size: 25px;
-    font-weight: 600;
-    left: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 52px;
-    width: 484px;
-  }
-  
-  .screen .text-wrapper-23 {
-    color: #ececec;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    left: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 120px;
-    width: 704px;
-  }
-  
-  .screen .img-wrapper {
-    background-color: var(--variable-collection-orange);
-    border-radius: 25px;
-    height: 50px;
-    left: 730px;
-    position: absolute;
-    top: 161px;
-    width: 50px;
-  }
-  
-  .screen .overlap-11 {
-    background-image: url('@/assets/rectangle-56-2.svg');
-    background-size: 100% 100%;
-    height: 211px;
-    left: 660px;
-    position: absolute;
-    top: 2873px;
-    width: 375px;
-  }
-  
-  .screen .text-wrapper-24 {
-    color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-SemiBold", Helvetica;
-    font-size: 25px;
-    font-weight: 600;
-    left: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 25px;
-    width: 219px;
-  }
-  
-  .screen .overlap-12 {
-    height: 93px;
-    left: 41px;
-    position: absolute;
-    top: 118px;
-    width: 334px;
-  }
-  
-  .screen .text-wrapper-25 {
-    color: #ececec;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
-    font-size: 18px;
-    font-weight: 400;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 0;
-    width: 310px;
-  }
-  
-  .screen .frame-4 {
-    background-color: var(--variable-collection-orange);
-    border-radius: 25px;
-    height: 50px;
-    left: 284px;
-    position: absolute;
-    top: 43px;
-    width: 50px;
-  }
-  
-  .screen .image {
-    height: 452px;
-    left: 1065px;
-    object-fit: cover;
-    position: absolute;
-    top: 2632px;
-    width: 600px;
-  }
-  
-  .screen .text-wrapper-26 {
-    color: var(--variable-collection-white);
-    font-family: "Balsamiq Sans-Bold", Helvetica;
-    font-size: 40px;
-    font-weight: 700;
-    left: 255px;
-    letter-spacing: 8.00px;
-    line-height: normal;
-    position: absolute;
-    top: 3207px;
-    white-space: nowrap;
-  }
-  
-  .screen .item {
-    border: 2px solid;
-    border-color: var(--variable-collection-orange);
-    border-radius: 30px;
-    height: 100px;
-    left: 255px;
-    overflow: hidden;
-    position: absolute;
-    top: 3296px;
-    width: 690px;
-  }
-  
-  .screen .text-wrapper-27 {
-    color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-Medium", Helvetica;
-    font-size: 22px;
-    font-weight: 500;
-    left: 50px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 33px;
-  }
-  
-  .screen .vector-6 {
-    height: 17px;
-    left: 617px;
-    position: absolute;
-    top: 42px;
-    width: 24px;
-  }
-  
-  .screen .item-2 {
-    background-color: var(--variable-collection-orange);
-    border-radius: 30px;
-    height: 220px;
-    left: 975px;
-    overflow: hidden;
-    position: absolute;
-    top: 3296px;
-    width: 690px;
-  }
-  
-  .screen .text-wrapper-28 {
-    color: #ececec;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    left: 50px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 82px;
-    width: 553px;
-  }
-  
-  .screen .item-3 {
-    border: 2px solid;
-    border-color: var(--variable-collection-orange);
-    border-radius: 30px;
-    height: 100px;
-    left: 255px;
-    overflow: hidden;
-    position: absolute;
-    top: 3416px;
-    width: 690px;
-  }
-  
-  .screen .vector-7 {
-    height: 17px;
-    left: 617px;
-    position: absolute;
-    top: 41px;
-    width: 24px;
-  }
-  
-  .screen .item-4 {
-    border: 2px solid;
-    border-color: var(--variable-collection-orange);
-    border-radius: 30px;
-    height: 100px;
-    left: 255px;
-    overflow: hidden;
-    position: absolute;
-    top: 3536px;
-    width: 690px;
-  }
-  
-  .screen .text-wrapper-29 {
-    color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-Medium", Helvetica;
-    font-size: 22px;
-    font-weight: 500;
-    left: 50px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 19px;
-    width: 547px;
-  }
-  
-  .screen .item-5 {
-    border: 2px solid;
-    border-color: var(--variable-collection-orange);
-    border-radius: 30px;
-    height: 100px;
-    left: 255px;
-    overflow: hidden;
-    position: absolute;
-    top: 3656px;
-    width: 690px;
-  }
-  
-  .screen .item-6 {
-    border: 2px solid;
-    border-color: var(--variable-collection-orange);
-    border-radius: 30px;
-    height: 100px;
-    left: 975px;
-    overflow: hidden;
-    position: absolute;
-    top: 3536px;
-    width: 690px;
-  }
-  
-  .screen .item-7 {
-    border: 2px solid;
-    border-color: var(--variable-collection-orange);
-    border-radius: 30px;
-    height: 100px;
-    left: 975px;
-    overflow: hidden;
-    position: absolute;
-    top: 3656px;
-    width: 690px;
-  }
-  
-  .screen .text-wrapper-30 {
-    color: var(--variable-collection-white);
-    font-family: "IBM Plex-Medium", Helvetica;
-    font-size: 22px;
-    font-weight: 500;
-    left: 50px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 19px;
-    width: 510px;
-  }
-  
-  .screen .item-8 {
-    border: 2px solid;
-    border-color: var(--variable-collection-orange);
-    border-radius: 30px;
-    height: 100px;
-    left: 255px;
-    overflow: hidden;
-    position: absolute;
-    top: 3776px;
-    width: 690px;
-  }
-  
-  .screen .item-9 {
-    border: 2px solid;
-    border-color: var(--variable-collection-orange);
-    border-radius: 30px;
-    height: 100px;
-    left: 975px;
-    overflow: hidden;
-    position: absolute;
-    top: 3776px;
-    width: 690px;
-  }
-  
-  .screen .text-wrapper-31 {
-    color: var(--variable-collection-white);
+
+  .h1{
+    margin-top: 139px;
     font-family: "Balsamiq Sans-Bold", Helvetica;
     font-size: 50px;
     font-weight: 700;
-    left: 255px;
-    letter-spacing: 8.00px;
+    letter-spacing: 8px;
     line-height: normal;
-    position: absolute;
-    top: 180px;
+    text-align: justify;
     width: 515px;
   }
-  
-  .screen .frame-5 {
-    align-items: center;
-    background-color: var(--variable-collection-orange);
-    border-radius: 20px;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 255px;
-    padding: 14px 35px;
-    position: absolute;
-    top: 541px;
-  }
-  
-  .screen .text-wrapper-32 {
-    color: #ffffff;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
-    font-size: 22px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 32px;
-    margin-top: -1.00px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
-  }
-  
-  .screen .text-wrapper-33 {
+  .descript{
+    margin-top: 20px;
     color: #ececec;
     font-family: "IBM Plex Sans-Regular", Helvetica;
     font-size: 20px;
     font-weight: 400;
-    left: 255px;
-    letter-spacing: 0;
+    letter-spacing: 0px;
     line-height: normal;
-    position: absolute;
-    top: 432px;
+    text-align: justify;
     width: 515px;
   }
-  
-  .screen .frame-6 {
-    align-items: center;
-    background-color: #2b2530;
-    border-radius: 15px;
-    display: inline-flex;
-    gap: 10px;
-    left: 255px;
-    padding: 5px 10px;
-    position: absolute;
-    top: 621px;
+
+  .start{
+    height: 60px;
+    width: 216px;
+    margin-top: 30px;
+    padding: 14px 35px;
+    border-radius: 20px;
+    background-color: var(--variable-collection-orange);
+    color: var(--variable-collection-white);
+    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 32px;
+    white-space: nowrap;
   }
-  
-  .screen .text-wrapper-34 {
+
+  .online{
+    display: flex;
+    height: 39px;
+    width: 188px;
+    border-radius: 15px;
+    margin-top: 20px;
+    background-color: #2b2631;
+    padding: 5px 10px;
+  }
+  .online-text{
+    margin-top: 3px;
     color: #b5b5b5;
     font-family: "IBM Plex Sans-Regular", Helvetica;
     font-size: 18px;
     font-weight: 400;
-    letter-spacing: 0;
+    letter-spacing: 0px;
     line-height: normal;
-    position: relative;
-    width: fit-content;
   }
-  
-  .screen .text-wrapper-35 {
+
+  .online-count{
+    margin-top: 1px;
+    margin-left: 10px;
     color: var(--variable-collection-white);
     font-family: "IBM Plex Sans-Medium", Helvetica;
     font-size: 22px;
     font-weight: 500;
-    letter-spacing: 0;
+    letter-spacing: 0px;
     line-height: normal;
-    margin-top: -1.00px;
-    position: relative;
-    width: fit-content;
   }
-  
-  .screen .frame-7 {
+
+  .impression-mosaiс{
+    justify-content: space-between;
     height: 640px;
-    left: 805px;
-    position: absolute;
-    top: 134px;
     width: 860px;
+    position: relative;
   }
-  
-  .screen .image-2 {
-    height: 383px;
-    left: 0;
+
+  .img,.img2,.img3,.img4,.img5,.img6,.img7,.img8{
     position: absolute;
-    top: 0;
-    width: 200px;
   }
-  
-  .screen .image-3 {
-    height: 237px;
-    left: 0;
+
+  .img{
+    margin-left: 220px;
+  }
+
+  .img3{
+    margin-top: 403px;
+  }
+
+  .img4{
+    margin: 332px 220px;
+  }
+
+  .img5{
+    margin:378px 440px;
+  }
+
+  .img6{
+    margin:271px 660px;
+  }
+
+  .img7{
+    margin-left: 660px;
+  }
+
+  .img8{
+    margin-left: 440px;
+  }
+
+  .transition{
+    position: relative;
+    margin-top: 110px;
+    height: 288px;
+  }
+
+  .box1{
+    background: url('@/assets/rectangle41.svg');
+    background-size: 100% 100%;
+    height: 285px;
     position: absolute;
-    top: 403px;
-    width: 200px;
+    width: 100%;
   }
-  
-  .screen .image-4 {
-    height: 308px;
-    left: 220px;
+  .box2{
+    background: url('@/assets/rectangle42.svg');
+    background-size: 100% 100%;
+    height: 285px;
     position: absolute;
-    top: 332px;
-    width: 200px;
+    width: 100%;
   }
-  
-  .screen .image-5 {
-    height: 262px;
-    left: 440px;
+
+  .transition-text{
     position: absolute;
-    top: 378px;
-    width: 200px;
+    margin: 97px 350px;
+    display: flex;
   }
   
-  .screen .image-6 {
-    height: 369px;
-    left: 660px;
-    position: absolute;
-    top: 271px;
-    width: 200px;
+  .h2{
+    color: var(--variable-collection-white);
+    font-family: "Balsamiq Sans-Bold", Helvetica;
+    font-size: 45px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    line-height: normal;
+    width: 758px;
   }
-  
-  .screen .image-7 {
-    height: 251px;
-    left: 660px;
-    position: absolute;
-    top: 0;
-    width: 200px;
+
+  .more-details{
+    margin-left: 113px;
+    height: 62px;
+    width: 185px;
+    border: 2px solid var(--variable-collection-white);
+    border-radius: 20px;
+    background-color: var(--variable-collection-orange);
+    color: var(--variable-collection-white);
+    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 32px;
+    white-space: nowrap;
+    cursor: pointer;
   }
-  
-  .screen .image-8 {
-    height: 358px;
-    left: 440px;
-    position: absolute;
-    top: 0;
-    width: 200px;
-  }
-  
-  .screen .image-9 {
-    height: 312px;
-    left: 220px;
-    position: absolute;
-    top: 0;
-    width: 200px;
-  }
-  
-  .screen .component-4 {
-    background-image: url('@/assets/rectangle-54.svg') !important;
-    left: 0 !important;
-    position: absolute !important;
-    top: 3986px !important;
-  }
-  
-  .screen .component-instance {
-    background-image: url('@/assets/logo.png') !important;
-  }
-  
-  .screen .frame-75 {
-    left: 255px !important;
-    position: absolute !important;
-    top: 30px !important;
-  }
-  </style>
+
+  .about-the-project {
+  padding:112px 255px;
+}
+
+.h3 {
+  color: var(--variable-collection-white);
+  font-family: "Balsamiq Sans-Bold", Helvetica;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.about-contents {
+  padding-top: 40px;
+  display: flex;
+  column-gap: 30px;
+}
+
+.box {
+  margin-top: 20px;
+  width: 480px;
+  height: 160px;
+  border: 2px solid var(--variable-collection-orange);
+  border-radius: 30px;
+  transition: transform 0.3s ease; 
+}
+
+.box:hover {
+  transform: scale(1.05); 
+  background-color: var(--variable-collection-orange);
+}
+
+.h4 {
+  padding: 27px 40px;
+  color: var(--variable-collection-white);
+  font-family: "IBM Plex Sans-Regular", Helvetica;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.h4descr {
+  padding-left: 40px;
+  color: #ececec;
+  font-family: "IBM Plex Sans-Regular", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: normal;
+  width: 385px;
+}
+
+.how-to-start{
+  padding: 112px 255px;
+}
+
+.how{
+  margin-top: 40px;
+  display: flex;
+  gap: 30px;
+}
+.how-box svg:hover path{
+  transition: fill 0.3s ease;
+  fill: var(--variable-collection-orange);
+}
+
+.how-boxes2{
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+.answers{
+  margin: 124px 255px;
+}
+
+.blox{
+  margin-top: 40px;
+  display: flex;
+  gap: 30px;
+}
+
+.answer-btn {
+  margin-top: 20px;
+  border: 2px solid var(--variable-collection-orange);
+  padding: 35px 50px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.answer-btn.expanded {
+  height: 200px;
+  background-color: var(--variable-collection-orange); 
+}
+
+.question{
+  color: var(--variable-collection-white);
+  font-family: "IBM Plex Sans-Regular", Helvetica;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  line-height: normal;
+}
+
+.answer {
+  margin-top: 20px;
+  color: #ececec;
+  font-family: "IBM Plex Sans-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: normal;
+  width: 553px;
+}
+
+.combination{
+  display: flex;
+  justify-content: space-between;
+}
+ </style>
