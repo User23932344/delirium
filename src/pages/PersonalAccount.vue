@@ -1,243 +1,234 @@
 <template>
     <header class="header">
-        <HeaderComponent/>
+      <HeaderComponent/>
     </header>
     
     <div class="account">
-        <h2 class="h2">Личный кабинет</h2>
-        <button 
+      <h2 class="h2">Личный кабинет</h2>
+      <button 
         class="btn" 
         :class="{ active: activeTab === 'settings' }" 
         @click="showSettings">
         Настройки
-        </button>
-        <button class="btn" 
+      </button>
+      <button class="btn" 
         :class="{ active: activeTab === 'stats' }" 
         @click="showStats">
         Статистика
-        </button>
-
-        <div v-if="activeTab === 'settings'">
-            <div class="settings">
-            <div class="box1">
-                <h3 class="h3">Смена почты</h3>
-                <input type="text" class="post" placeholder="Старая почта">
-                <input type="text" class="post" placeholder="Новая почта">
-                <button class="change">Изменить</button>
-            </div>
-            <div class="box2">
+      </button>
+  
+      <div v-if="activeTab === 'settings'">
+        <div class="settings">
+          <div class="box1">
+            <h3 class="h3">Смена почты</h3>
+            <input type="text" class="post" placeholder="Старая почта">
+            <input type="text" class="post" placeholder="Новая почта">
+            <button class="change">Изменить</button>
+          </div>
+          <div class="box2">
             <h3 class="h3">Смена пароля</h3>
             <img :src="eye" @click="togglePassword(1)" class="eye" />
             <img :src="eye" @click="togglePassword(2)" class="eye2" />
             <img :src="eye" @click="togglePassword(3)" class="eye3" />
             <input 
-                :type="showPassword1 ? 'text' : 'password'" 
-                class="pass" 
-                placeholder="Старый пароль"
+              :type="showPassword1 ? 'text' : 'password'" 
+              class="pass" 
+              placeholder="Старый пароль"
             />
             <input 
-                :type="showPassword2 ? 'text' : 'password'" 
-                class="pass" 
-                placeholder="Новый пароль"
+              :type="showPassword2 ? 'text' : 'password'" 
+              class="pass" 
+              placeholder="Новый пароль"
             />
             <input 
-                :type="showPassword3 ? 'text' : 'password'" 
-                class="pass" 
-                placeholder="Повторите новый пароль"
+              :type="showPassword3 ? 'text' : 'password'" 
+              class="pass" 
+              placeholder="Повторите новый пароль"
             />
             <button class="change">Изменить</button>
+          </div>
+          <div class="box3">
+            <h3 class="h3">Настройка уведомлений</h3>
+            <p class="p">Выберите те уведомления, которые хотели бы получать на почту</p>
+            <div class="checkbox-container">
+              <input type="checkbox" id="check1" class="check">
+              <label for="check1">
+                <p class="checkp">Вход в аккаунт</p>
+              </label>
+  
+              <input type="checkbox" id="check2" class="check">
+              <label for="check2">
+                <p class="checkp">Подтверждение входа</p>
+              </label>
+  
+              <input type="checkbox" id="check3" class="check">
+              <label for="check3">
+                <p class="checkp">Восстановление аккаунта</p>
+              </label>
             </div>
-            <div class="box3">
-                <h3 class="h3">Настройка уведомлений</h3>
-                <p class="p">Выберите те уведомления, которые хотели, чтобы приходили на почту</p>
-                <div class="checkbox-container">
-                <input type="checkbox" id="check1" class="check">
-                <label for="check1">
-                    <p class="checkp">Вход в аккаунт</p>
-                </label>
-    
-                <input type="checkbox" id="check2" class="check">
-                <label for="check2">
-                    <p class="checkp">Подтверждение входа</p>
-                </label>
-    
-                <input type="checkbox" id="check3" class="check">
-                <label for="check3">
-                    <p class="checkp">Восстановление аккаунта</p>
-                </label>
-            </div>
-          <button class="save">Сохранить</button>
-            </div>
-            </div>
+            <button class="save">Сохранить</button>
+          </div>
         </div>
-    </div>
-<!-----------------------------------                                   ------------------------------------->
-        <div v-if="activeTab === 'stats'">
-            <div class="stat">
-            <div class="statacc">
-                <div class="block">
-                <div class="nameblock">Аккаунт</div>
-                <div class="field">
-                    <p class="fieldname">ID игрового аккаунта</p>
-                    <p class="variable">19</p>
-                </div>
-                <div class="field">
-                    <p class="fieldname">Последняя активность</p>
-                    <p class="variable">17.03.2025</p>
-                </div>
-                <div class="field">
-                    <p class="fieldname">Группировка</p>
-                    <p class="variable">Смурфики</p>
-                </div>
-                <div class="field">
-                    <p class="fieldname">Ранг</p>
-                    <p class="variable">Папа Смурф</p>
-                </div>
-                </div>
-                <div class="block2">
-                <div class="nameblock">Состояние</div>
-                    <div class="field">
-                    <p class="fieldname">Опыт</p>
-                    <p class="variable">5,989,650 xp</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Уровень</p>
-                    <p class="variable">48 LVL</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Деньги</p>
-                    <p class="variable">$1,156,980</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Человечность</p>
-                    <p class="variable">1886</p>
-                    </div>
-                </div>
+      </div>
+  
+      <div v-if="activeTab === 'stats'">
+        <div class="stat">
+          <div class="statacc">
+            <div class="block">
+              <div class="nameblock">Аккаунт</div>
+              <div class="field">
+                <p class="fieldname">ID игрового аккаунта</p>
+                <p class="variable">{{ userData?.id ?? '—' }}</p>
+              </div>
+              <div class="field">
+                <p class="fieldname">Последняя активность</p>
+                <p class="variable">{{ userData?.last_active ?? '—' }}</p>
+              </div>
+              <div class="field">
+                <p class="fieldname">Группировка</p>
+                <p class="variable">{{ userData?.group ?? '—' }}</p>
+              </div>
+              <div class="field">
+                <p class="fieldname">Ранг</p>
+                <p class="variable">{{ userData?.rank ?? '—' }}</p>
+              </div>
+            </div>
+            <div class="block2">
+              <div class="nameblock">Состояние</div>
+              <div class="field">
+                <p class="fieldname">Опыт</p>
+                <p class="variable">{{ userData?.xp ?? '—' }} xp</p>
+              </div>
+              <div class="field">
+                <p class="fieldname">Уровень</p>
+                <p class="variable">{{ userData?.level ?? '—' }} LVL</p>
+              </div>
+              <div class="field">
+                <p class="fieldname">Деньги</p>
+                <p class="variable">${{ userData?.money ?? '—' }}</p>
+              </div>
+              <div class="field">
+                <p class="fieldname">Человечность</p>
+                <p class="variable">{{ userData?.humanity ?? '—' }}</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="achievements">
-        <div class="nameblock2">Статистика</div>
-        <div class="field">
-                    <p class="fieldname">Текущее выживание</p>
-                    <p class="variable">1сек</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Общее выживание</p>
-                    <p class="variable">1 нед. 6 д. 19 ч. 27 мин. 10 сек</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Пройдено пешком</p>
-                    <p class="variable">3,052,705 м</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Пройдено на транспорте</p>
-                    <p class="variable">3,662,139 м</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Убито игроков</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Выстрелы в голову</p>
-                    <p class="variable">27,002</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Попаданий всего</p>
-                    <p class="variable">56,832</p>
-                    </div>
-        <div class="nameblock2">Достижения</div>
-        <div class="field">
-                    <p class="fieldname">Закаленный</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Это было больно?</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Проводник</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Дальнобойщик</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Тяжелая артиллерия</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Хобби</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Удачная сделка</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Сталкер</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Строитель</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Деструкция</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Мастер</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Орлиный глаз</p>
-                    <p class="variable">1,004</p>
-                    </div>
-                    <div class="field">
-                    <p class="fieldname">Я люблю сюрпризы</p>
-                    <p class="variable">1,004</p>
-                    </div>
-        <button class="change2">Показать еще</button>
+        <div v-if="userData?.achievements">
+   <div class="achievements">
+       <div class="nameblock2">Статистика</div>
+       <div class="field">
+         <p class="fieldname">Текущее выживание</p>
+         <p class="variable">{{ userData?.achievements?.current_survival ?? '—' }}</p>
+       </div>
+       <div class="field">
+         <p class="fieldname">Общее выживание</p>
+         <p class="variable">{{ userData?.achievements?.total_survival ?? '—' }}</p>
+       </div>
+       <div class="field">
+         <p class="fieldname">Пройдено пешком</p>
+         <p class="variable">{{ userData?.achievements?.walked_distance ?? '—' }} м</p>
+       </div>
+       <div class="field">
+         <p class="fieldname">Пройдено на транспорте</p>
+         <p class="variable">{{ userData?.achievements?.vehicle_distance ?? '—' }} м</p>
+       </div>
+       <div class="field">
+         <p class="fieldname">Убито игроков</p>
+         <p class="variable">{{ userData?.achievements?.players_killed ?? '—' }}</p>
+       </div>
+       <div class="field">
+         <p class="fieldname">Выстрелы в голову</p>
+         <p class="variable">{{ userData?.achievements?.headshots ?? '—' }}</p>
+       </div>
+       <div class="field">
+         <p class="fieldname">Попаданий всего</p>
+         <p class="variable">{{ userData?.achievements?.total_hits ?? '—' }}</p>
+       </div>
+   
+       <div class="nameblock2">Достижения</div>
+<div v-for="(achievement, index) in userData.achievements" :key="index" class="field">
+    <p class="fieldname">{{ achievement.name }}</p>
+    <p class="variable">{{ achievement.value }}</p>
+</div>
+   
+       <button class="change2">Показать еще</button>
+   </div>
+      </div>
+      </div>
+  
     </div>
-    </div>
-    </div>
-
+  
     <footer class="footer">
-        <FooterComponent/>
+      <FooterComponent/>
     </footer>
-</template>
+  </template>
+  
 
-<script setup>
-import { ref } from "vue";
-import HeaderComponent from '@/components/Header.vue';
-import FooterComponent from '@/components/Footer.vue';
-import eye from '@/assets/eye.svg'; 
-
-const activeTab = ref("settings");
-
-const showPassword1 = ref(false); 
-const showPassword2 = ref(false); 
-const showPassword3 = ref(false); 
-
-const showSettings = () => {
-    activeTab.value = "settings";
-};
-
-const showStats = () => {
-    activeTab.value = "stats";
-};
-
-const togglePassword = (num) => {
-    if (num === 1) {
-        showPassword1.value = !showPassword1.value;
-    } else if (num === 2) {
-        showPassword2.value = !showPassword2.value;
-    } else if (num === 3) {
-        showPassword3.value = !showPassword3.value;
+  <script setup>
+  import { ref, onMounted } from "vue";
+  import HeaderComponent from '@/components/Header.vue';
+  import FooterComponent from '@/components/Footer.vue';
+  import eye from '@/assets/eye.svg';
+  
+  const activeTab = ref("settings");
+  
+  const showPassword1 = ref(false); 
+  const showPassword2 = ref(false); 
+  const showPassword3 = ref(false); 
+  
+  const userData = ref(null); 
+  const userId = ref(null);  
+  
+  const showSettings = () => {
+      activeTab.value = "settings";
+  };
+  
+  const showStats = () => {
+      activeTab.value = "stats";
+  };
+  
+  const togglePassword = (num) => {
+      if (num === 1) {
+          showPassword1.value = !showPassword1.value;
+      } else if (num === 2) {
+          showPassword2.value = !showPassword2.value;
+      } else if (num === 3) {
+          showPassword3.value = !showPassword3.value;
+      }
+  };
+  
+  const fetchUserData = async (userId) => {
+    try {
+      const userResponse = await fetch(`http://localhost:3000/users/${userId}`);
+      if (!userResponse.ok) {
+        throw new Error('Ошибка при получении данных пользователя');
+      }
+      const userDataResponse = await userResponse.json();
+  
+      const achievementsResponse = await fetch(`http://localhost:3000/achievements/${userId}`);
+      if (!achievementsResponse.ok) {
+        throw new Error('Ошибка при получении достижений');
+      }
+      const achievementsData = await achievementsResponse.json();
+  
+      userData.value = { user: userDataResponse, achievements: achievementsData };
+    } catch (error) {
+      console.error('Ошибка при получении данных:', error);
     }
-};
-</script>
-
+  };
+  
+  onMounted(() => {
+      const storedUserId = localStorage.getItem("userId");
+      if (storedUserId) {
+          userId.value = storedUserId; 
+          fetchUserData(userId.value); 
+      } else {
+          console.error("Не найден ID пользователя в localStorage");
+      }
+  });
+  </script>
+  
 <style scoped>
 .header {
     padding-top: 30px;
@@ -485,7 +476,6 @@ label::before {
 }
 
 .stat{
-    margin-left: 255px;
     background-color: #1C1920;
 }
 

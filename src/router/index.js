@@ -34,10 +34,12 @@ const routes = [
     component: Maps,
   },
   {
-    path:'/personalaccount',
-    name:'PersonalAccount',
+    path: '/personalaccount/:userId', 
+    name: 'PersonalAccount',
     component: PersonalAccount,
+    props: false, 
   },
+  
   {
     path:'/transport',
     name:'Transport',

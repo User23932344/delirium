@@ -34,7 +34,7 @@
       <div v-else-if="error" class="error">{{ error }}</div>
       <div v-else class="transport-list">
         <div v-for="car in paginatedCars" :key="car.id" class="transport-card">
-            <img :src="getImagePath(car.image)" :alt="car.name" class="car-image" />
+          <img :src="getImagePath(car.image)" :alt="car.name" class="car-image" />
             <div class="table-header">
           <p class="p">Наименование:</p>
           <p class="p">Багажник:</p>
@@ -135,10 +135,9 @@
   };
   
   const getImagePath = (path) => {
-  return new URL(`/src/assets/${path}`, import.meta.url).href;
+  return `http://localhost:3000/images/${path}`;
 };
 
-  
   const paginationRange = computed(() => {
     const total = totalPages.value;
     const current = currentPage.value;

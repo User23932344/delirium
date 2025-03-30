@@ -6,24 +6,23 @@
         <h2>Восстановление</h2>
         <h3>На вашу электронную почту будет отправлено письмо содержащее новый пароль от аккаунта</h3>
       </div>
-      
 
       <template v-if="!isRecoveryMode">
-        <input type="text" placeholder="Логин" class="input-field" />
-        <input type="password" placeholder="Пароль" class="input-field" />
+        <input v-model="username" type="text" placeholder="Логин" class="input-field" />
+        <input v-model="password" type="password" placeholder="Пароль" class="input-field" />
         <div class="under">
-          <input type="checkbox" id="check" class="check">
+          <input v-model="rememberMe" type="checkbox" id="check" class="check">
           <label for="check">
             <p class="checkp">Запомнить меня</p>
           </label>
           <a class="a" href="#" @click.prevent="isRecoveryMode = true">Забыли пароль?</a>
         </div>
-        <button class="login-btn" @click="pa">Авторизоваться</button>
+        <button class="login-btn" @click="login">Авторизоваться</button>
       </template>
 
       <template v-else>
-        <input type="email" placeholder="Введите email" class="input-field" />
-        <button class="login-btn2">Отправить код</button>
+        <input v-model="recoveryEmail" type="email" placeholder="Введите email" class="input-field" />
+        <button class="login-btn2" @click="sendRecoveryCode">Отправить код</button>
       </template>
 
     </div>
@@ -31,26 +30,97 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, ref } from "vue";
+import { defineProps, defineEmits, ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 defineProps({ show: Boolean });
 const emit = defineEmits(["close"]);
+const router = useRouter();
 
+const username = ref("");
+const password = ref("");
+const rememberMe = ref(false);
 const isRecoveryMode = ref(false);
-const router = useRouter(); 
-
+const recoveryEmail = ref("");
+const userId = ref(null); 
 const close = () => {
-    isRecoveryMode.value = false;
-    emit("close");
+  isRecoveryMode.value = false;
+  emit("close");
 };
 
-const pa = () => {
-    router.push("/personalaccount");
+const login = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/users/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ login: username.value, password: password.value }),
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      userId.value = data.userId;  // Сохраняем ID пользователя
+
+      // Сохраняем ID в localStorage
+      localStorage.setItem("userId", data.userId);  
+
+      if (rememberMe.value) {
+        localStorage.setItem("username", username.value);
+        localStorage.setItem("password", password.value);
+      } else {
+        localStorage.removeItem("username");
+        localStorage.removeItem("password");
+      }
+
+      // Перенаправление на личный кабинет с ID пользователя
+      router.push(`/personalaccount/${data.userId}`);  // Перенаправляем с ID пользователя
+
+    } else {
+      alert(data.error || "Ошибка авторизации");
+    }
+  } catch (error) {
+    console.error("Ошибка авторизации:", error);
+    alert("Произошла ошибка при подключении.");
+  }
 };
+
+const sendRecoveryCode = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/users/recovery", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: recoveryEmail.value }),
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      alert("Код отправлен на ваш email.");
+      isRecoveryMode.value = false;
+    } else {
+      alert(data.error || "Ошибка восстановления пароля");
+    }
+  } catch (error) {
+    console.error("Ошибка восстановления:", error);
+    alert("Произошла ошибка при подключении.");
+  }
+};
+
+onMounted(() => {
+  const savedUsername = localStorage.getItem("username");
+  const savedPassword = localStorage.getItem("password");
+
+  if (savedUsername && savedPassword) {
+    username.value = savedUsername;
+    password.value = savedPassword;
+    rememberMe.value = true;
+  }
+
+  const savedUserId = localStorage.getItem("userId");
+  if (savedUserId) {
+    userId.value = savedUserId;
+  }
+});
 </script>
 
-  
   <style scoped>
   .modal-overlay {
     position: fixed;
@@ -95,6 +165,7 @@ height: 65px;
 }
 
 .input-field {
+  color: var(--variable-collection-white);
   padding-left: 10px;
   background-color: #1c1426;
   border: 2px solid;
@@ -183,6 +254,24 @@ label::before {
     letter-spacing: 0;
     line-height: 19.2px;
   }
+
+  .disabled-btn{
+    width: 340px;
+    height: 60px;
+    background-color: #9a3f02;
+    color: var(--variable-collection-white);
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 19.2px;
+  }
+
   .login-btn2{width: 340px;
     height: 60px;
     background-color: var(--variable-collection-orange);
@@ -197,6 +286,10 @@ label::before {
     font-weight: 400;
     letter-spacing: 0;
     line-height: 19.2px;
+  }
+
+  .error{
+    color: var(--variable-collection-white);
   }
   </style>
   
