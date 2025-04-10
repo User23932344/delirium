@@ -1,55 +1,48 @@
 <template>
-    <div class="component">
-      <div class="overlap-group">
-        <img class="vector" alt="Vector" :src="logo" />
+  <div class="footer">
+    <div class="links">
+      <div class="st">
+        <img :src="logo">
+        <p class="text">РБ ООО "ЯровитПлюс"</p>
+        <p class="text">УНП: 591038946</p>
       </div>
-  
-      <p class="jarovitplus">
-        <span class="text-wrapper">JarovitPlus </span>
-        <span class="span">©2023</span>
-      </p>
-  
-      <div class="frame">
-        <div class="element">УНП: 591038946</div>
-        <div class="div">РБ ООО &#34;ЯровитПлюс&#34;</div>
+      <div class="st2">
+        <h2 class="h2">Игрокам</h2>
+        <div class="lk">
+        <a class="link" @click="home">Начать играть</a>
+        <a class="link">Форум</a>
+        <a class="link" @click="rating">Рейтинг</a>
+        <a class="link" @click="topUp">Пополнить счет</a>
       </div>
-  
-      <div class="text-wrapper-2">Игрокам</div>
-      <div class="text-wrapper-3">Информация</div>
-      <div class="text-wrapper-4">Контакты</div>
-  
-      <div class="div-2">
-        <div class="text-wrapper-5" @click="home">Начать играть</div>
-        <div class="text-wrapper-6">Форум</div>
-        <div class="text-wrapper-7" @click="rating">Рейтинг</div>
-        <div class="text-wrapper-8" @click="topUp">Пополнить счет</div>
       </div>
-  
-      <div class="div-3">
-        <div class="text-wrapper-5">Политика конфиденциальности</div>
-        <div class="text-wrapper-6">Пользовательское соглашение</div>
-        <div class="text-wrapper-7">Публичная оферта</div>
-        <div class="text-wrapper-8" >Политика возврата</div>
+      <div class="st2">
+        <h2 class="h2">Информация</h2>
+        <div class="lk">
+        <a class="link">Политика конфиденциальности</a>
+        <a class="link">Пользовательское соглашение</a>
+        <a class="link">Публичная оферта</a>
+        <a class="link">Политика возврата</a>
       </div>
-  
-      <div class="frame-2">
-        <a href="https://vk.com/deliriumcom">
-        <img class="group" alt="Vkontakte" :src="vkontakte" />
-      </a><a href="https://t.me/deliriumamber">
-        <img class="group" alt="Telegram" :src="telegramm" />
-      </a><a href="https://discord.gg/cFF9bB6yMN">
-        <img class="group" alt="Discord" :src="discord" />
-      </a>
       </div>
+      <div class="st3">
+        <h2 class="h2">Контакты</h2>
+        <a href="https://vk.com/deliriumcom"><img class="img" :src="vkontakte" ></a>
+        <a href="https://discord.gg/cFF9bB6yMN"><img class="img" :src="discord" >
+        </a><a href="https://t.me/deliriumamber"><img class="img" :src="telegramm"></a>
+      </div>
+      <div class="jarovit">
+      <h3 class="h3">JarovitPlus ©2023</h3>
     </div>
+    </div>
+  </div>
   </template>
   
   
   <script>
-import vkontakte from '@/assets/vkontakte.png';
-import telegramm from '@/assets/telegramm.png';
-import discord from '@/assets/discord.png';
-import logo from '@/assets/logo.png'; 
+import vkontakte from '@/assets/vkontakte.svg';
+import telegramm from '@/assets/telegramm.svg';
+import discord from '@/assets/discord.svg';
+import logo from '@/assets/logo.svg'; 
 
 export default {
   name: 'Component',
@@ -76,189 +69,238 @@ export default {
 </script>
 
   
-<style>
-.component {
-  background-image: url('@/assets/background.svg');
-  background-size: 100% 100%;
-  height: 308px;
-  position: relative;
-  width: 100%;
-}
+<style scoped>
+@media (max-width:1920px) {
+  .footer{
+    width: 100%;
+    height: 308px;
+    background-color: #221F2F;
+    border-radius: 20px 20px;
+  }
 
-.component .overlap-group {
-  background-image: url('@/assets/logo.png'); 
-  background-size: 100% 100%;
-  height: 64px;
-  left: 255px;
-  position: absolute;
-  top: 30px;
-  width: 66px;
-}
+  .links{
+    margin-left: 255px;
+    display: flex;
+  }
 
-.component .vector {
-  height: 11px;
-  left: 25px;
-  position: absolute;
-  top: 24px;
-  width: 10px;
-}
+  .st{
+    margin-top: 30px;
+    white-space: nowrap;
+  }
 
-.component .jarovitplus {
-  color: #666666;
-  font-family: "IBM Plex Sans-Medium", Helvetica;
-  font-size: 15px;
-  font-weight: 400;
-  left: 900px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 257px;
-}
-
-.component .text-wrapper {
-  font-weight: 500;
-}
-
-.component .span {
-  font-family: "IBM Plex Sans-Bold", Helvetica;
-  font-weight: 700;
-}
-
-.component .frame {
-  height: 56px;
-  left: 255px;
-  position: absolute;
-  top: 105px;
-  width: 196px;
-}
-
-.component .element {
-  color: #666666;
-  font-family: "IBM Plex Sans-Medium", Helvetica;
-  font-size: 18px;
-  font-weight: 500;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 32px;
-}
-
-.component .div {
-  color: #666666;
-  font-family: "IBM Plex Sans-Medium", Helvetica;
-  font-size: 18px;
-  font-weight: 500;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: -1px;
-}
-
-.component .text-wrapper-2 {
-  color: var(--variable-collection-white);
-  font-family: "IBM Plex Sans-SemiBold", Helvetica;
-  font-size: 18px;
-  font-weight: 600;
-  left: 659px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 55px;
-}
-
-.component .text-wrapper-3 {
-  color: var(--variable-collection-white);
-  font-family: "IBM Plex Sans-SemiBold", Helvetica;
-  font-size: 18px;
-  font-weight: 600;
-  left: 1022px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 55px;
-}
-
-.component .text-wrapper-4 {
-  color: var(--variable-collection-white);
-  font-family: "IBM Plex Sans-SemiBold", Helvetica;
-  font-size: 18px;
-  font-weight: 600;
-  left: 1524px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 55px;
-}
-
-.component .div-2 {
-  height: 122px;
-  left: 659px;
-  position: absolute;
-  top: 99px;
-  width: 134px;
-}
-
-.component .text-wrapper-5,.text-wrapper-6,.text-wrapper-7,.text-wrapper-8 {
+  .text{
   color: #949494;
-  font-family: "IBM Plex Sans-Regular", Helvetica;
-  font-size: 18px;
+  font-size: 23px;
+  font-family: "IBM Plex Sans-Regular" Helvetica;
+  margin-top: 10px;
+  cursor: default;
+}
+
+  .st2{
+    white-space: nowrap;
+    margin-top: 30px;
+  margin: 56px 150px;
+}
+
+.st3{
+  margin-top: 56px;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.img{
+  margin-top:15px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.h2{
+  color: var(--variable-collection-white);
+  font-family: "IBM Plex Sans-Semibold" helvetica;
+  font-size: 23px;
+  font-weight: 600;
+  cursor: default;
+}
+
+.lk{
+  margin-top: 20px;
+  white-space: nowrap;
+  display: grid;
+}
+
+.link{
+  color: #949494;
+  font-family: "IBM Plex Sans-Regular" helvetica;
+  font-size: 23px;
+  cursor: pointer;
   font-weight: 400;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
+  margin-top: 10px;
+}
+.jarovit{
   position: absolute;
-  top: -1px;
+  margin: 258px 645px;
+  color: #666;
+  font-size: 15px;
+  font-family: "IBM Plex Sans-Medium" helvetica;
+  cursor: default;
 }
 
-.component .text-wrapper-6 {
-  top: 32px;
 }
 
-.component .text-wrapper-7 {
-  top: 65px;
+@media (max-width:1024px){
+  .footer{
+    width: 100%;
+    height: 308px;
+    background-color: #221F2F;
+    border-radius: 20px 20px;
+  }
+  .links{
+    margin-left: 30px;
+    display: flex;
+  }
+
+  .st{
+    margin-top: 30px;
+    white-space: nowrap;
+  }
+
+  .text{
+  color: #949494;
+  font-size: 23px;
+  font-family: "IBM Plex Sans-Regular" Helvetica;
+  margin-top: 10px;
+  cursor: default;
 }
 
-.component .text-wrapper-8 {
-  top: 98px;
+  .st2{
+    white-space: nowrap;
+    margin-top: 30px;
+    
+  margin: 54px 30px;
 }
 
-.component .text-wrapper-5,.text-wrapper-6,.text-wrapper-7,.text-wrapper-8:hover{
-    cursor:pointer;
-}
-
-.component .div-3 {
-  height: 122px;
-  left: 1022px;
+.st3{
   position: absolute;
-  top: 99px;
-  width: 272px;
+  margin-top: 179px;
+  justify-content: space-between;
+  white-space: nowrap;
 }
 
-.component .frame-2 {
-  align-items: center;
-  display: flex;
-  gap: 30px;
-  height: 21px;
-  left: 1524px;
+.img{
+  margin-top:15px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.h2{
+  color: var(--variable-collection-white);
+  font-family: "IBM Plex Sans-Semibold" helvetica;
+  font-size: 23px;
+  font-weight: 600;
+  cursor: default;
+}
+
+.lk{
+  margin-top: 20px;
+  white-space: nowrap;
+  display: grid;
+}
+
+.link{
+  color: #949494;
+  font-family: "IBM Plex Sans-Regular" helvetica;
+  font-size: 23px;
+  cursor: pointer;
+  font-weight: 400;
+  margin-top: 10px;
+}
+.jarovit{
   position: absolute;
-  top: 94px;
-  width: 141px;
+  margin: 267px 320px;
+  color: #666;
+  font-size: 15px;
+  font-family: "IBM Plex Sans-Medium" helvetica;
+  cursor: default;
 }
 
-.component .img {
-  height: 18px;
-  margin-left: -1.00px;
-  position: relative;
-  width: 29px;
+
 }
 
-.component .group {
-  height: 22px;
-  margin-bottom: -0.50px;
-  margin-top: -0.50px;
-  position: relative;
-  width: 29px;
+@media(max-width:770px){
+  .footer{
+    width: 100%;
+    height: 687px;
+    background-color: #221F2F;
+    border-radius: 20px 20px;
+  }
+
+  .links{
+    margin-left: 25px;
+    display: grid;
+  }
+  .st{
+    margin-top: 30px;
+    white-space: nowrap;
+  }
+
+  .text{
+  color: #949494;
+  font-size: 23px;
+  font-family: "IBM Plex Sans-Regular" Helvetica;
+  margin-top: 10px;
+  cursor: default;
 }
+
+  .st2{
+    white-space: nowrap;
+    margin-top: 30px;
+    
+  margin: 54px 30px;
+}
+
+.st3{
+  margin-top: 179px;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.img{
+  margin-top:15px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.h2{
+  color: var(--variable-collection-white);
+  font-family: "IBM Plex Sans-Semibold" helvetica;
+  font-size: 23px;
+  font-weight: 600;
+  cursor: default;
+}
+
+.lk{
+  margin-top: 20px;
+  white-space: nowrap;
+  display: grid;
+}
+
+.link{
+  color: #949494;
+  font-family: "IBM Plex Sans-Regular" helvetica;
+  font-size: 23px;
+  cursor: pointer;
+  font-weight: 400;
+  margin-top: 10px;
+}
+.jarovit{
+  position: absolute;
+  margin: 649px 110px;
+  color: #666;
+  font-size: 15px;
+  font-family: "IBM Plex Sans-Medium" helvetica;
+  cursor: default;
+}
+}
+
+
 </style>
