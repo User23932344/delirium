@@ -99,7 +99,7 @@ export default {
   .st2{
     white-space: nowrap;
     margin-top: 30px;
-  margin: 56px 150px;
+  margin: 56px 7vw;
 }
 
 .st3{

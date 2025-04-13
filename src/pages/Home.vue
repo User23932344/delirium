@@ -1,12 +1,14 @@
 <template>
-<header class="header">
+    <div class="screen">
+      <header class="header">
   <HeaderComponent/>
 </header>
-    <div class="screen">
+
+<div class="home">
       <div class="impression">
         <div class="impression-text">
          <h1 class="h1">Играй в Delirium на крупнейшем RPG-проекте</h1>
-         <p class="descript">Многопользовательская онлайн играс огромным открытым миром, 
+         <p class="descript">Многопользовательская онлайн игра с огромным открытым миром, 
           в которомты можешь стать кем захочешь!</p>
          <button class="start">Начать играть</button>
          <div class="online">
@@ -26,8 +28,8 @@
         </div>
       </div>
       <div class="transition">
-      <div class="box1"></div>
-      <div class="box2"></div>
+        <div class="box1"></div>
+        <div class="box2"></div>
       <div class="transition-text">
         <h2 class="h2">Играй в Delirium на крупнейшем RPG-проекте</h2>
         <button class="more-details">Подробнее</button>
@@ -89,12 +91,13 @@
     <img :src="image" alt="Проект" />
   </div>
 </div>
+
 <div class="how-to-start">
     <h3 class="h3">Как начать играть?</h3>
     <div class="how">
       <div class="how-boxes">
       <div class="how-box">
-        <svg width="780" height="211" viewBox="0 0 780 211" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg  viewBox="0 0 780 211" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M717 181C717 197.568 703.569 211 687 211L30 211C13.4315 211 1.17422e-06 197.568 2.62268e-06 181L1.58235e-05 29.9999C1.7272e-05 13.4314 13.4315 -5.17568e-05 30 -5.03083e-05L750 1.26361e-05C766.569 1.40846e-05 780 13.4315 780 30L780 119C780 135.569 766.569 149 750 149L747 149C730.431 149 717 162.431 717 179L717 181Z" stroke="#FF6600" stroke-width="2"/>
   <text x="40" y="53" font-size="25" fill="white" font-family="IBM Plex Sans-Semibold, Helvetica">
   <tspan>Скачайте SA-MP и игру GTA san Andreas</tspan> 
@@ -111,7 +114,7 @@
       </div>
       <div class="how-boxes2">
       <div class="how-box">
-        <svg width="375" height="211" viewBox="0 0 375 211" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 375 211" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M311 181C311 197.016 298.016 210 282 210L30 210C13.9837 210 1 197.016 1 181L1.00002 30C1.00002 13.9837 13.9838 0.999968 30 0.99997L345 0.999997C361.016 0.999999 374 13.9837 374 30L374 119C374 135.016 361.016 148 345 148L342 148C324.879 148 311 161.879 311 179L311 181Z" stroke="#FF6600" stroke-width="2"/>
 <text x="40" y="53" font-size="25" fill="white" font-family="IBM Plex Sans-Semibold, Helvetica">
   <tspan>Подключитесь к </tspan> 
@@ -128,7 +131,7 @@
 </svg>
       </div>
       <div class="how-box">
-        <svg width="375" height="211" viewBox="0 0 375 211" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg  viewBox="0 0 375 211" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M311 181C311 197.016 298.016 210 282 210L30 210C13.9837 210 1 197.016 1 181L1.00002 30C1.00002 13.9837 13.9838 0.999968 30 0.99997L345 0.999997C361.016 0.999999 374 13.9837 374 30L374 119C374 135.016 361.016 148 345 148L342 148C324.879 148 311 161.879 311 179L311 181Z" stroke="#FF6600" stroke-width="2"/>
   <text x="40" y="53" font-size="25" fill="white" font-family="IBM Plex Sans-Semibold, Helvetica">
   <tspan>Запустите сервер  </tspan> 
@@ -146,7 +149,7 @@
       </div>
     </div>
     </div>
-      <img :src="image2">
+      <img class="how-img" :src="image2">
     </div>
   </div>
 
@@ -184,6 +187,8 @@
   </div>
 
 </div>
+</div>
+
     <footer class="footer">
       <FooterComponent/>
     </footer>
@@ -277,28 +282,23 @@ export default {
 };
 </script>
 
-
   <style scoped>
+  @media(max-width:1920px){
+    .screen {
+  background-color: #19151d;
+  width: 100%;
+  padding: 60px 13vw; 
+  box-sizing: border-box;
+}
+
   .header {
-    padding-top: 30px;
-    left: 255px;
   z-index: 1;
-}
-
-.footer {
-  z-index: 1;
-}
-
-  .screen {
-    margin-top: 40px;
-    background-color: #19151d;
-    width: 100%;
   }
 
   .impression{
-    margin-left: 225px;
     display: flex;
-    column-gap: 35px;
+    gap:2vw;
+    margin-top: 140px;
   }
 
   .impression-text{
@@ -306,14 +306,13 @@ export default {
   }
 
   .h1{
-    margin-top: 139px;
     font-family: "Balsamiq Sans-Bold", Helvetica;
     font-size: 50px;
     font-weight: 700;
     letter-spacing: 8px;
     line-height: normal;
-    text-align: justify;
-    width: 515px;
+    text-align:justify;
+    width: 27vw;
   }
   .descript{
     margin-top: 20px;
@@ -324,7 +323,7 @@ export default {
     letter-spacing: 0px;
     line-height: normal;
     text-align: justify;
-    width: 515px;
+    width: 27vw;
   }
 
   .start{
@@ -414,42 +413,66 @@ export default {
 
   .transition{
     position: relative;
-    margin-top: 110px;
-    height: 288px;
-  }
-
-  .box1{
-    background: url('@/assets/rectangle41.svg');
-    background-size: 100% 100%;
     height: 285px;
-    position: absolute;
-    width: 100%;
-  }
-  .box2{
-    background: url('@/assets/rectangle42.svg');
-    background-size: 100% 100%;
-    height: 285px;
-    position: absolute;
     width: 100%;
   }
 
-  .transition-text{
+  .box1 {
     position: absolute;
-    margin: 97px 350px;
-    display: flex;
-  }
-  
-  .h2{
-    color: var(--variable-collection-white);
+  background-color: var(--variable-collection-orange);
+  width: calc(100% + 26vw);
+  margin-left: -13vw;
+  height: 285px;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0.8;
+  clip-path: polygon(
+    0% 0%,       
+    100% 52.6%,     
+    100% 100%,      
+    0% 75.4%,       
+    0% 0%           
+  );
+}
+
+.box2 {
+  margin-left: -13vw;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: calc(100% + 26vw);
+  height: 274px;
+  z-index: 2;
+  background-color: var(--variable-collection-orange);
+  clip-path: polygon(
+    0% 10.8%,
+    100% 0%,
+    100% 83.4%,
+    0% 100%,
+    0% 10.8%
+  );
+}
+
+
+.transition-text{
+  z-index: 9999;
+  display: flex;
+  position: absolute;
+  margin-top: 97px;
+}
+
+.h2{
+  color: var(--variable-collection-white);
     font-family: "Balsamiq Sans-Bold", Helvetica;
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 700;
     letter-spacing: 8px;
     line-height: normal;
-    width: 758px;
-  }
+    width: 40vw;
+    text-align: left;
+}
 
-  .more-details{
+.more-details{
     margin-left: 113px;
     height: 62px;
     width: 185px;
@@ -467,7 +490,7 @@ export default {
   }
 
   .about-the-project {
-  padding:112px 255px;
+  padding-top:112px;
 }
 
 .h3 {
@@ -483,12 +506,12 @@ export default {
 .about-contents {
   padding-top: 40px;
   display: flex;
-  column-gap: 30px;
+  column-gap: 2vw;
 }
 
 .box {
   margin-top: 20px;
-  width: 480px;
+  width: 24.95vw;
   height: 160px;
   border: 2px solid var(--variable-collection-orange);
   border-radius: 30px;
@@ -523,14 +546,32 @@ export default {
 }
 
 .how-to-start{
-  padding: 112px 255px;
+  padding-top:112px;
 }
 
 .how{
   margin-top: 40px;
   display: flex;
-  gap: 30px;
+  width: calc(100% + 1vw);
+  gap: 2vw;
 }
+.how-boxes{
+  width: 50vw;
+  height: 4vw;
+}
+
+.how-box svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.how-box {
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+
 .how-box svg:hover path{
   transition: fill 0.3s ease;
   fill: var(--variable-collection-orange);
@@ -539,17 +580,18 @@ export default {
 .how-boxes2{
   margin-top: 30px;
   display: flex;
-  gap: 30px;
+  gap: 1.5vw;
+  width: 100%;
 }
 
 .answers{
-  margin: 124px 255px;
+  margin-top: 124px;
 }
 
 .blox{
   margin-top: 40px;
   display: flex;
-  gap: 30px;
+  gap: 2vw;
 }
 
 .answer-btn {
@@ -582,11 +624,19 @@ export default {
   font-weight: 400;
   letter-spacing: 0px;
   line-height: normal;
-  width: 553px;
+  width: 28.8vw;
 }
 
 .combination{
   display: flex;
   justify-content: space-between;
+}
+
+.footer {
+  z-index: 1;
+}
+}
+@media(max-width:770px){
+
 }
  </style>

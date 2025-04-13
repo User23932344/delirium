@@ -83,11 +83,13 @@ export default {
 
 <style scoped>
 @media(max-width:1920px){
-.header {
+  .header {
+  max-width: 1410px;
+  width: 100%;
+  margin: 0 0;
   height: 64px;
-  width: 1410px;
   display: flex;
-  align-items:center;
+  align-items: center;
 }
  .logo{
   width: 73px;
@@ -116,7 +118,7 @@ export default {
  .images{
   display: flex;
   margin-top: -30px;
-  margin-left: 206px;
+  margin-left: 10vw;
   justify-content: space-between;
  }
  .img,.img2,.img3{
@@ -148,6 +150,7 @@ export default {
   font-family: "IBM Plex Sans-Regular", Helvetica;
   font-size: 22px;
   white-space: nowrap;
+  cursor: pointer;
  }
  .img-account {
   display: none;
