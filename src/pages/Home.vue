@@ -10,11 +10,13 @@
          <h1 class="h1">Играй в Delirium на крупнейшем RPG-проекте</h1>
          <p class="descript">Многопользовательская онлайн игра с огромным открытым миром, 
           в которомты можешь стать кем захочешь!</p>
+          <div class="st-online">
          <button class="start">Начать играть</button>
          <div class="online">
           <p class="online-text">Сейчас играют: </p>
           <p class="online-count">{{ onlinePlayers }}</p>
         </div>
+      </div>
         </div>
         <div class="impression-mosaiс">
           <img :src="image1" class="img">
@@ -35,9 +37,11 @@
         <button class="more-details">Подробнее</button>
       </div>
     </div>
+
     <div class="about-the-project">
   <h3 class="h3">О проекте</h3>
   <div class="about-contents">
+
     <div class="about">
       <div
         class="box"
@@ -88,7 +92,9 @@
         <p class="h4descr">Выживает сильнейший</p>
       </div>
     </div>
-    <img :src="image" alt="Проект" />
+    <div class="download-img">
+    <img class="image" :src="image"/>
+  </div>
   </div>
 </div>
 
@@ -149,7 +155,9 @@
       </div>
     </div>
     </div>
+    <div>
       <img class="how-img" :src="image2">
+    </div>
     </div>
   </div>
 
@@ -637,6 +645,331 @@ export default {
 }
 }
 @media(max-width:770px){
+.screen {
+  background-color: #19151d;
+  width: 100%;
+  padding: 25px 9.7vw; 
+  box-sizing: border-box;
+}
+.header {
+  z-index: 1;
+  }
+
+  .impression{
+    margin-top: 40px;
+  }
+
+  .impression-text{
+    color: var(--variable-collection-white);
+  }
+
+  .h1{
+    font-family: "Balsamiq Sans-Bold", Helvetica;
+    font-size: 35px;
+    letter-spacing: 8px;
+    line-height: normal;
+    text-align:justify;
+    width: 62vw;
+  }
+  .descript{
+    margin-top: 20px;
+    color: #ececec;
+    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: normal;
+    text-align: left;
+    width: 67vw;
+  }
+
+  .st-online{
+    display: flex;
+  }
+
+  .start{
+    height: 50px;
+    width: 170px;
+    margin-top: 30px;
+    padding: 8px 25px;
+    border-radius: 15px;
+    background-color: var(--variable-collection-orange);
+    color: var(--variable-collection-white);
+    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 32px;
+    white-space: nowrap;
+  }
+
+  .online{
+    margin-top: 35px;
+    display: flex;
+    height: 23px;
+    width: 148px;
+    border-radius: 10px;
+    margin-left: 4vw;
+    background-color: #2b2631;
+    padding: 5px 10px;
+  }
+  .online-text{
+    margin-top: 3px;
+    color: #b5b5b5;
+    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .online-count{
+    margin-top: 1px;
+    margin-left: 10px;
+    color: var(--variable-collection-white);
+    font-family: "IBM Plex Sans-Medium", Helvetica;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    line-height: normal;
+  }
+
+  .impression-mosaiс{
+    display: none;
+  }
+  .transition{
+    margin-top: 90px;
+    position: relative;
+    height: 285px;
+    width: 100%;
+  }
+
+  .box1 {
+    position: absolute;
+  background-color: var(--variable-collection-orange);
+  width: calc(100% + 19.4vw);
+  margin-left: -9.7vw;
+  height: 285px;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0.8;
+  clip-path: polygon(
+    0% 0%,       
+    100% 52.6%,     
+    100% 100%,      
+    0% 75.4%,       
+    0% 0%           
+  );
+}
+
+.box2 {
+  margin-left: -9.7vw;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: calc(100% + 19.4vw);
+  height: 274px;
+  z-index: 2;
+  background-color: var(--variable-collection-orange);
+  clip-path: polygon(
+    0% 10.8%,
+    100% 0%,
+    100% 83.4%,
+    0% 100%,
+    0% 10.8%
+  );
+}
+
+
+.transition-text{
+  z-index: 9999;
+  display: flex;
+  position: absolute;
+  margin-top: 97px;
+}
+
+.h2{
+  color: var(--variable-collection-white);
+    font-family: "Balsamiq Sans-Bold", Helvetica;
+    font-size: 30px;
+    letter-spacing: 8px;
+    line-height: normal;
+    width: 55vw;
+    text-align: left;
+}
+
+.more-details{
+    margin-left: 6.6vw;
+    margin-top: 29px;
+    height: 50px;
+    width: 145px;
+    border: 2px solid var(--variable-collection-white);
+    border-radius: 15px;
+    background-color: var(--variable-collection-orange);
+    color: var(--variable-collection-white);
+    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-size: 18px;
+    line-height: 32px;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  
+  .about-the-project {
+  padding-top:90px;
+}
+
+.h3 {
+  color: var(--variable-collection-white);
+  font-family: "Balsamiq Sans-Bold", Helvetica;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  line-height: normal;
+  white-space: nowrap;
+  white-space:inherit;
+}
+
+.about-contents {
+  padding-top: 20px;
+  display: grid;
+}
+.about{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5vw;
+}
+.box {
+  align-content: stretch;
+  margin-top: 20px;
+  width: 39vw;
+  border: 2px solid var(--variable-collection-orange);
+  border-radius: 30px;
+  transition: transform 0.3s ease; 
+}
+
+.box:hover {
+  transform: scale(1.05); 
+  background-color: var(--variable-collection-orange);
+}
+
+.h4 {
+  padding: 27px 30px;
+  width: 21vw;
+  color: var(--variable-collection-white);
+  font-family: "IBM Plex Sans-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.h4descr {
+  padding-left: 30px;
+  color: #ececec;
+  font-family: "IBM Plex Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  width: 33.1vw;
+}
+
+.download-img{
+  margin-top: 20px;
+  
+}
+.image{
+  max-width: 80.5vw;
+}
+
+.how-to-start{
+  padding: top 90px;
+}
+
+.how{
+  margin-top: 100px;
+  width: calc(100% + 1vw);
+}
+.how-boxes{
+  width: 100%;
+  height: 4vw;
+}
+
+.how-box svg {
+  width: 100%;
+  height: auto;
+}
+
+.how-box {
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+.how-box svg:hover path{
+  transition: fill 0.3s ease;
+  fill: var(--variable-collection-orange);
+}
+
+.how-boxes2{
+  margin-top: 30px;
+  display: flex;
+  gap: 1.5vw;
+  width: 100%;
+}
+
+.how-img{
+  display: none;
+}
+
+.answers{
+  margin-top: 380px;
+}
+
+.blox{
+  margin-top: 40px;
+  display: block;
+}
+
+.answer-btn {
+  margin-top: 20px;
+  border: 2px solid var(--variable-collection-orange);
+  padding: 35px 50px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.answer-btn.expanded {
+  background-color: var(--variable-collection-orange); 
+}
+
+.question{
+  color: var(--variable-collection-white);
+  font-family: "IBM Plex Sans-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  line-height: normal;
+}
+
+.answer {
+  margin-top: 20px;
+  color: #ececec;
+  font-family: "IBM Plex Sans-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  width: 69.5vw;
+}
+
+.combination{
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  z-index: 1;
+  margin-top: 90px;
+}
 
 }
  </style>

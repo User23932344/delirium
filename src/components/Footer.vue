@@ -30,9 +30,9 @@
         <a href="https://discord.gg/cFF9bB6yMN"><img class="img" :src="discord" >
         </a><a href="https://t.me/deliriumamber"><img class="img" :src="telegramm"></a>
       </div>
-      <div class="jarovit">
-      <h3 class="h3">JarovitPlus ©2023</h3>
     </div>
+    <div class="jarovit">
+      <h3 class="h3">JarovitPlus ©2023</h3>
     </div>
   </div>
   </template>
@@ -147,96 +147,18 @@ export default {
 
 }
 
-@media (max-width:1024px){
+@media(max-width:770px){
   .footer{
     width: 100%;
     height: 308px;
     background-color: #221F2F;
     border-radius: 20px 20px;
-  }
-  .links{
-    margin-left: 30px;
-    display: flex;
-  }
-
-  .st{
-    margin-top: 30px;
-    white-space: nowrap;
-  }
-
-  .text{
-  color: #949494;
-  font-size: 23px;
-  font-family: "IBM Plex Sans-Regular" Helvetica;
-  margin-top: 10px;
-  cursor: default;
-}
-
-  .st2{
-    white-space: nowrap;
-    margin-top: 30px;
-    
-  margin: 54px 30px;
-}
-
-.st3{
-  position: absolute;
-  margin-top: 179px;
-  justify-content: space-between;
-  white-space: nowrap;
-}
-
-.img{
-  margin-top:15px;
-  margin-right: 30px;
-  cursor: pointer;
-}
-
-.h2{
-  color: var(--variable-collection-white);
-  font-family: "IBM Plex Sans-Semibold" helvetica;
-  font-size: 23px;
-  font-weight: 600;
-  cursor: default;
-}
-
-.lk{
-  margin-top: 20px;
-  white-space: nowrap;
-  display: grid;
-}
-
-.link{
-  color: #949494;
-  font-family: "IBM Plex Sans-Regular" helvetica;
-  font-size: 23px;
-  cursor: pointer;
-  font-weight: 400;
-  margin-top: 10px;
-}
-.jarovit{
-  position: absolute;
-  margin: 267px 320px;
-  color: #666;
-  font-size: 15px;
-  font-family: "IBM Plex Sans-Medium" helvetica;
-  cursor: default;
-}
-
-
-}
-
-@media(max-width:770px){
-  .footer{
-    width: 100%;
-    height: 687px;
-    background-color: #221F2F;
-    border-radius: 20px 20px;
+    padding:31px 9.7vw;
   }
 
   .links{
     margin-left: 25px;
-    display: grid;
+    display: flex;
   }
   .st{
     margin-top: 30px;
@@ -245,20 +167,21 @@ export default {
 
   .text{
   color: #949494;
-  font-size: 23px;
+  font-size: 18px;
   font-family: "IBM Plex Sans-Regular" Helvetica;
   margin-top: 10px;
   cursor: default;
+  width: 25.5vw;
 }
 
   .st2{
     white-space: nowrap;
     margin-top: 30px;
-    
-  margin: 54px 30px;
+    margin-left: 3.9vw;
 }
 
 .st3{
+  position: absolute;
   margin-top: 179px;
   justify-content: space-between;
   white-space: nowrap;
@@ -273,13 +196,14 @@ export default {
 .h2{
   color: var(--variable-collection-white);
   font-family: "IBM Plex Sans-Semibold" helvetica;
-  font-size: 23px;
+  font-size: 18px;
   font-weight: 600;
   cursor: default;
+  text-align: left;
 }
 
 .lk{
-  margin-top: 20px;
+  margin-top: 15px;
   white-space: nowrap;
   display: grid;
 }
@@ -287,19 +211,23 @@ export default {
 .link{
   color: #949494;
   font-family: "IBM Plex Sans-Regular" helvetica;
-  font-size: 23px;
+  font-size: 16px;
   cursor: pointer;
   font-weight: 400;
   margin-top: 10px;
+  text-align: left;
 }
 .jarovit{
   position: absolute;
-  margin: 649px 110px;
+  margin: 15px 35vw;
   color: #666;
   font-size: 15px;
   font-family: "IBM Plex Sans-Medium" helvetica;
   cursor: default;
+  white-space: nowrap;
 }
+
+
 }
 
 

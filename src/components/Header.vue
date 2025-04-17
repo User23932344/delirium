@@ -164,13 +164,13 @@ export default {
   align-items:center;
   }
   .logo{
-    width: 65px;
-  height: 65px;
+    width: 8.4vw;
+  height: 8.4vw;
   margin-top: -36px;
   }
   .menu-toggle {
     margin-top: -30px;
-    margin-left: 592px;
+    margin-left: 76.9vw;
     position: absolute;
     display: block;
     font-size: 32px;
@@ -194,7 +194,7 @@ export default {
 
 .menu.open {
   height: 200px;
-  width: 190px;
+  width: 24.6vw;
   font-family: "IBM Plex Sans-Regular",Helvetica;
   font-size: 18px;
   padding: 20px 20px 20px 20px;
@@ -214,11 +214,11 @@ export default {
   .images{
   display: flex;
   margin-top: -30px;
-  margin-left: 113px;
+  margin-left: 14.7vw;
   justify-content: space-between;
  }
   .img,.img2,.img3{
-  margin-left: 30px;
+  margin-left: 3.8vw;
  }
  .img3{
   width: 27px;
@@ -233,25 +233,25 @@ export default {
   height: 18px;
  }
  .account{
-  margin-left: 40px;
+  margin-left: 5.2px;
   margin-top: -30px;
  }
  .text-account{
   border: none;
   border-radius: 15px;
-  width: 190px;
+  width: 24.7vw;
   height: 50px;
   background-color: var(--variable-collection-orange);
   color: var(--variable-collection-white);
   font-family: "IBM Plex Sans-Regular", Helvetica;
-  font-size: 18px;
+  font-size: 2.3vw;
   white-space: nowrap;
  }
  .img-account {
   display: none;
 }
 }
-@media(max-width:350px){
+@media(max-width:460px){
   .header{
     height: 41px;
   width: 90%;
