@@ -82,7 +82,7 @@ export default {
 </script>
 
 <style scoped>
-@media(max-width:1920px){
+@media(max-width:4200px){
   .header {
   max-width: 1410px;
   width: 100%;
@@ -156,7 +156,7 @@ export default {
   display: none;
 }
 }
-@media(max-width:770px){
+@media(max-width:1550px){
   .header{
     height: 59px;
   width: 80%;

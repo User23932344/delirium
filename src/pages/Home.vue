@@ -291,7 +291,7 @@ export default {
 </script>
 
   <style scoped>
-  @media(max-width:1920px){
+  @media(max-width:4200px){
     .screen {
   background-color: #19151d;
   width: 100%;
@@ -382,9 +382,8 @@ export default {
 
   .impression-mosaiс{
     justify-content: space-between;
-    height: 640px;
-    width: 860px;
-    position: relative;
+    max-height: 640px;
+    width: 44.7vw;
   }
 
   .img,.img2,.img3,.img4,.img5,.img6,.img7,.img8{
@@ -423,6 +422,7 @@ export default {
     position: relative;
     height: 285px;
     width: 100%;
+    margin-top: 13vw;
   }
 
   .box1 {
@@ -565,6 +565,7 @@ export default {
 }
 .how-boxes{
   width: 50vw;
+  max-width: 780px;
   height: 4vw;
 }
 
@@ -644,7 +645,7 @@ export default {
   z-index: 1;
 }
 }
-@media(max-width:770px){
+@media(max-width:1550px){
 .screen {
   background-color: #19151d;
   width: 100%;
@@ -889,6 +890,7 @@ export default {
 .how{
   margin-top: 100px;
   width: calc(100% + 1vw);
+  position: relative;
 }
 .how-boxes{
   width: 100%;
@@ -922,7 +924,7 @@ export default {
 }
 
 .answers{
-  margin-top: 380px;
+  margin-top: 49.3vw;
 }
 
 .blox{
