@@ -229,19 +229,20 @@ export default {
 
 }
 
-@media(max-width:1024px){
+@media(max-width:700px){
   .footer{
     width: 100%;
-    height: 308px;
+    height: 687px;
+    
     background-color: #221F2F;
     border-radius: 20px 20px;
-    padding:31px 9.7vw;
+    padding:31px 7.1vw;
   }
 
   .links{
-    margin-left: 25px;
-    display: flex;
+    display:block;
   }
+
   .st{
     margin-top: 30px;
     white-space: nowrap;
@@ -259,17 +260,17 @@ export default {
   .st2{
     white-space: nowrap;
     margin-top: 30px;
-    margin-left: 3.9vw;
+    margin-left: 0;
 }
 
 .st3{
-  position: absolute;
-  margin-top: 179px;
+  margin-top: -50px;
   justify-content: space-between;
   white-space: nowrap;
 }
 
 .img{
+  height: 13px;
   margin-top:15px;
   margin-right: 30px;
   cursor: pointer;
@@ -278,14 +279,14 @@ export default {
 .h2{
   color: var(--variable-collection-white);
   font-family: "IBM Plex Sans-Semibold" helvetica;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   cursor: default;
   text-align: left;
 }
 
 .lk{
-  margin-top: 15px;
+  margin-top: 10px;
   white-space: nowrap;
   display: grid;
 }
@@ -295,18 +296,16 @@ export default {
   font-family: "IBM Plex Sans-Regular" helvetica;
   font-size: 16px;
   cursor: pointer;
-  font-weight: 400;
   margin-top: 10px;
   text-align: left;
 }
 .jarovit{
-  position: absolute;
-  margin: 250px 35vw;
   color: #666;
   font-size: 15px;
   font-family: "IBM Plex Sans-Medium" helvetica;
   cursor: default;
   white-space: nowrap;
+  margin-left: 0;
 }
 
 }
