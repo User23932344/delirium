@@ -251,7 +251,7 @@ export default {
   display: none;
 }
 }
-@media(max-width:460px){
+@media(max-width:480px){
   .header{
     height: 41px;
   width: 90%;
@@ -259,13 +259,13 @@ export default {
   align-items:center;
   }
   .logo{
-    width: 46px;
-  height: 46px;
+    width: 13.1vw;
+  height: 13.1vw;
   margin-top: -32px;
   }
   .menu-toggle {
     margin-top: -33px;
-    margin-left: 262px;
+    margin-left: 75vw;
     position: absolute;
     display: block;
     font-size: 29px;
@@ -276,7 +276,7 @@ export default {
   }
   .menu {
   margin-top: 230px;
-  margin-left: 98px;
+  margin-left: 28vw;
   position: absolute;
   flex-direction: column;
   gap: 10px;
@@ -289,7 +289,7 @@ export default {
 
 .menu.open {
   height: 200px;
-  width: 190px;
+  width: 54.2vw;
   font-family: "IBM Plex Sans-Regular",Helvetica;
   font-size: 18px;
   padding: 20px 20px 20px 20px;
@@ -306,7 +306,7 @@ export default {
   justify-content: center;
 }
   .account{
-  margin-left: 30px;
+  margin-left: 8vw;
   margin-top: -30px;
  }
   .text-account{
@@ -318,22 +318,22 @@ export default {
 .images{
   display: flex;
   margin-top: -30px;
-  margin-left: 15px;
+  margin-left: 4.2vw;
   justify-content: space-between;
  }
   .img,.img2,.img3{
-  margin-left: 20px;
+  margin-left: 5.7vw;
  }
  .img3{
-  width: 20px;
+  width: 5vw;
   height: 13px;
  }
  .img2{
-  width: 20px;
+  width: 5vw;
   height: 13px;
  }
  .img{
-  width: 20px;
+  width: 5vw;
   height: 13px;
  }
 }
