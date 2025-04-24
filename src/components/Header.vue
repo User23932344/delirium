@@ -233,13 +233,13 @@ export default {
   height: 18px;
  }
  .account{
-  margin-left: 5.2px;
+  margin-left: 5.2vw;
   margin-top: -30px;
  }
  .text-account{
   border: none;
   border-radius: 15px;
-  width: 24.7vw;
+  width: 20vw;
   height: 50px;
   background-color: var(--variable-collection-orange);
   color: var(--variable-collection-white);
