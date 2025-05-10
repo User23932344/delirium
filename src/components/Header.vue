@@ -84,28 +84,27 @@ export default {
 <style scoped>
 @media(max-width:4200px){
   .header {
-  max-width: 1410px;
-  width: 100%;
+  width: 73.4vw;
   margin: 0 0;
   height: 64px;
   display: flex;
   align-items: center;
 }
  .logo{
-  width: 73px;
-  height: 73px;
+  width: 3.8vw;
+  height: 3.8vw;
   margin-top: -36px;
  }
 
  .menu{
-  margin-left: 50px;
+  margin-left: 2.6vw;
   display: flex;
   margin-top: -30px;
   color: #858585;
   font-family: "IBM Plex Sans-Regular",Helvetica;
   font-size: 20px;
   justify-content: space-between;
-  gap: 50px;
+  gap: 2.6vw;
   white-space: nowrap;
  }
  .menu-item:hover{
@@ -122,7 +121,7 @@ export default {
   justify-content: space-between;
  }
  .img,.img2,.img3{
-  margin-left: 30px;
+  margin-left: 1.5vw;
  }
  .img3{
   width: 27px;
@@ -137,13 +136,13 @@ export default {
   height: 18px;
  }
  .account{
-  margin-left: 20px;
+  margin-left: 1vw;
   margin-top: -30px;
  }
  .text-account{
   border: none;
   border-radius: 20px;
-  width: 241px;
+  width: 12.6vw;
   height: 60px;
   background-color: var(--variable-collection-orange);
   color: var(--variable-collection-white);

@@ -84,11 +84,11 @@
                 <button class="btn">Пополнить</button>
             </div>
         </div>
-        
+        <footer class="footer">
+            <FooterComponent />
+        </footer>
     </div>
-    <footer class="footer">
-        <FooterComponent />
-    </footer>
+
 </template>
 
 <script>
@@ -108,19 +108,22 @@ export default {
 <style scoped>
 @media(max-width:4200px) {
     .screen {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
         background-color: #19161D;
-        padding-left: 13.3vw;
-        min-height: 95vh;
     }
 
     .header {
         padding-top: 30px;
+        margin-left: 6.6vw;
     }
 
     .content {
+        flex: 1;
         display: flex;
-        margin-top: 40px;
-        margin-left: 0.6vw;
+        margin-top: 3.7vh;
+        margin-left: 13.9vw;
         gap: 2vw;
     }
 
@@ -130,6 +133,7 @@ export default {
         border-radius: 10px;
         height: 507px;
         width: 47.4vw;
+        padding-right: 1.5vw;
     }
 
     .assortment {
@@ -264,7 +268,7 @@ export default {
         color: orangered;
     }
 
-    .btn{
+    .btn {
         margin-top: 33px;
         height: 60px;
         width: 23.4vw;
@@ -276,8 +280,382 @@ export default {
         font-size: 22px;
         border: none;
     }
-    .btn:active{
+
+    .btn:active {
         background-color: orangered;
+    }
+
+    .footer {
+        margin-top: auto;
+        width: 100%;
+    }
+
+}
+
+@media(max-width:1550px) {
+    .screen {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #19161D;
+    }
+
+    .header {
+        padding-top: 30px;
+        margin-left: 6.6vw;
+    }
+
+    .content {
+        display: block;
+    }
+
+    .products {
+        padding-left: 1.5vw;
+        background-color: #1C1920;
+        border-radius: 10px;
+        height: 795px;
+        width: 80.2vw;
+    }
+
+    .assortment {
+        margin-top: 40px;
+        font-family: "IBM Plex Sans", Helvetica;
+        font-size: 25px;
+        color: var(--variable-collection-white);
+    }
+
+    .course {
+        color: var(--variable-collection-white);
+        margin-top: 20px;
+        font-family: "IBM Plex Sans", Helvetica;
+        font-size: 18px;
+        color: var(--variable-collection-white);
+    }
+
+    .table {
+        margin-top: 20px;
+        display: block;
+    }
+
+    .element {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 72.7vw;
+        font-size: 20px;
+        font-family: "IBM Plex Sans", Helvetica;
+    }
+
+    .product {
+        color: var(--variable-collection-white);
+    }
+
+    .price {
+        justify-items: end;
+        color: var(--variable-collection-orange);
+    }
+
+    .replenishment {
+        color: var(--variable-collection-white);
+        font-family: "IBM Plex Sans", Helvetica;
+        font-size: 35px;
+    }
+
+    .topup {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .input {
+        margin-top: 20px;
+        height: 60px;
+        width: 79.6vw;
+        border-radius: 20px;
+        border: none;
+        background-color: #201C25;
+        color: #858585;
+        font-family: "IBM Plex Sans", Helvetica;
+        font-size: 18px;
+        line-height: 21.6px;
+        padding-left: 1.6vw;
+    }
+
+    .input[type="number"]::-webkit-outer-spin-button,
+    .input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .input[type="number"] {
+        appearance: textfield;
+        -moz-appearance: textfield;
+    }
+
+    .checkp {
+        margin-left: 5px;
+        color: var(--variable-collection-white);
+        font-family: "IBM Plex Sans-Regular", Helvetica;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.2px;
+        white-space: nowrap;
+    }
+
+    .check {
+        display: none;
+    }
+
+    .check-label {
+        margin-top: 15px;
+        display: flex;
+    }
+
+    .custom-checkbox {
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--variable-collection-orange);
+        border-radius: 5px;
+        background-color: transparent;
+        transition: background 0.3s, border 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        line-height: 1;
+        color: white;
+        font-weight: bold;
+        box-sizing: border-box;
+    }
+
+    .check:checked+.custom-checkbox {
+        background-color: var(--variable-collection-orange);
+        content: "✔";
+    }
+
+    .check:checked+.custom-checkbox::after {
+        content: "✔";
+        line-height: 1;
+    }
+
+    .check-link {
+        color: var(--variable-collection-orange);
+    }
+
+    .check-link:hover {
+        color: darkorange;
+    }
+
+    .check-link:visited {
+        color: orangered;
+    }
+
+    .btn {
+        margin-top: 33px;
+        height: 60px;
+        width: 79.6vw;
+        border-radius: 20px;
+        padding: 14px 1.8vw;
+        background-color: var(--variable-collection-orange);
+        color: var(--variable-collection-white);
+        font-family: "IBM Plex Sans", Helvetica;
+        font-size: 22px;
+        border: none;
+    }
+
+    .btn:active {
+        background-color: orangered;
+    }
+
+    .footer {
+        margin-top: 90px;
+        width: 100%;
+    }
+
+}
+
+@media(max-width:440px) {
+    .screen {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #19161D;
+    }
+
+    .header {
+        padding-top: 30px;
+        margin-left: 6.6vw;
+    }
+
+    .content {
+        display: block;
+    }
+
+    .products {
+        padding-left: 1.5vw;
+        background-color: #1C1920;
+        border-radius: 10px;
+        height: 795px;
+        width: 80.2vw;
+    }
+
+    .assortment {
+        margin-top: 40px;
+        font-family: "IBM Plex Sans", Helvetica;
+        font-size: 25px;
+        color: var(--variable-collection-white);
+    }
+
+    .course {
+        color: var(--variable-collection-white);
+        margin-top: 20px;
+        font-family: "IBM Plex Sans", Helvetica;
+        font-size: 18px;
+        color: var(--variable-collection-white);
+    }
+
+    .table {
+        margin-top: 20px;
+        display: block;
+    }
+
+    .element {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 72.7vw;
+        font-size: 15px;
+        font-family: "IBM Plex Sans", Helvetica;
+    }
+
+    .product {
+        color: var(--variable-collection-white);
+    }
+
+    .price {
+        justify-items: end;
+        color: var(--variable-collection-orange);
+    }
+
+    .replenishment {
+        color: var(--variable-collection-white);
+        font-family: "IBM Plex Sans", Helvetica;
+        font-size: 35px;
+    }
+
+    .topup {
+        margin-top:40px;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .input {
+        margin-top: 20px;
+        height: 60px;
+        width: 79.6vw;
+        border-radius: 20px;
+        border: none;
+        background-color: #201C25;
+        color: #858585;
+        font-family: "IBM Plex Sans", Helvetica;
+        font-size: 18px;
+        line-height: 21.6px;
+        padding-left: 1.6vw;
+    }
+
+    .input[type="number"]::-webkit-outer-spin-button,
+    .input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .input[type="number"] {
+        appearance: textfield;
+        -moz-appearance: textfield;
+    }
+
+    .checkp {
+        margin-left: 5px;
+        color: var(--variable-collection-white);
+        font-family: "IBM Plex Sans-Regular", Helvetica;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.2px;
+        white-space: nowrap;
+    }
+
+    .check {
+        display: none;
+    }
+
+    .check-label {
+        margin-top: 15px;
+        display: flex;
+    }
+
+    .custom-checkbox {
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--variable-collection-orange);
+        border-radius: 5px;
+        background-color: transparent;
+        transition: background 0.3s, border 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        line-height: 1;
+        color: white;
+        font-weight: bold;
+        box-sizing: border-box;
+    }
+
+    .check:checked+.custom-checkbox {
+        background-color: var(--variable-collection-orange);
+        content: "✔";
+    }
+
+    .check:checked+.custom-checkbox::after {
+        content: "✔";
+        line-height: 1;
+    }
+
+    .check-link {
+        color: var(--variable-collection-orange);
+    }
+
+    .check-link:hover {
+        color: darkorange;
+    }
+
+    .check-link:visited {
+        color: orangered;
+    }
+
+    .btn {
+        margin-top: 33px;
+        height: 60px;
+        width: 79.6vw;
+        border-radius: 20px;
+        padding: 14px 1.8vw;
+        background-color: var(--variable-collection-orange);
+        color: var(--variable-collection-white);
+        font-family: "IBM Plex Sans", Helvetica;
+        font-size: 22px;
+        border: none;
+    }
+
+    .btn:active {
+        background-color: orangered;
+    }
+
+    .footer {
+        margin-top: 90px;
+        width: 100%;
     }
 
 }

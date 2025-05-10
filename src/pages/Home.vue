@@ -355,6 +355,7 @@ export default {
     letter-spacing: 0px;
     line-height: 32px;
     white-space: nowrap;
+    cursor: pointer;
   }
 
   .online{
@@ -1308,7 +1309,7 @@ export default {
 
 .footer {
   z-index: 1;
-  margin-top: 90px;
+  margin-top: 80px;
 }
 
 }

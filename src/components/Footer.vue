@@ -73,9 +73,9 @@ export default {
 @media (max-width:4200px) {
   .footer{
     width: 100%;
-    height: 308px;
+    height: 318px;
     background-color: #221F2F;
-    border-radius: 20px 20px;
+    border-radius: 20px 20px 0 0;
   }
 
   .links{
@@ -123,7 +123,8 @@ export default {
 }
 
 .lk{
-  margin-top: 20px;
+  max-height: 250px;
+  margin-top: 1vh;
   white-space: nowrap;
   display: grid;
 }
@@ -131,14 +132,14 @@ export default {
 .link{
   color: #949494;
   font-family: "IBM Plex Sans-Regular" helvetica;
-  font-size: 1.2vw;
+  font-size: 23px;
   cursor: pointer;
   font-weight: 400;
   margin-top: 10px;
 }
 .jarovit{
   position: absolute;
-  margin: 258px 33.6vw;
+  margin: 270px 33.6vw;
   color: #666;
   font-size: 15px;
   font-family: "IBM Plex Sans-Medium" helvetica;
