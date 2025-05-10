@@ -504,7 +504,7 @@ export default {
     .assortment {
         margin-top: 40px;
         font-family: "IBM Plex Sans", Helvetica;
-        font-size: 25px;
+        font-size: 20px;
         color: var(--variable-collection-white);
     }
 
@@ -512,7 +512,7 @@ export default {
         color: var(--variable-collection-white);
         margin-top: 20px;
         font-family: "IBM Plex Sans", Helvetica;
-        font-size: 18px;
+        font-size: 16px;
         color: var(--variable-collection-white);
     }
 
@@ -543,7 +543,8 @@ export default {
     .replenishment {
         color: var(--variable-collection-white);
         font-family: "IBM Plex Sans", Helvetica;
-        font-size: 35px;
+        font-size: 20px;
+        font-weight: 700;
     }
 
     .topup {
