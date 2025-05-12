@@ -148,7 +148,7 @@ export default {
 
 }
 
-@media(max-width:1024px){
+@media(max-width:1550px){
   .footer{
     width: 100%;
     height: 308px;

@@ -157,7 +157,6 @@ export default {
         flex-direction: column;
         justify-content: space-between;
         background-image: url("@/assets/block.svg");
-        border: 1px solid red;
         background-repeat: no-repeat;
         background-size: 23.4vw 7.6vw;
         background-position: center;
@@ -181,7 +180,7 @@ export default {
     }
 
     .h4 {
-        margin-top: 35px;
+        margin-top: 1.8vw;
         margin-left: 2vw;
         color: var(--variable-collection-white);
         font-family: "IBM Plex Sans";
@@ -192,7 +191,8 @@ export default {
     }
 
     .text {
-        margin-top: 5px;
+        position: absolute;
+        margin-top: 3.6vw;
         margin-left: 2vw;
         color: var(--variable-collection-white);
         font-family: "IBM Plex Sans";
@@ -200,7 +200,7 @@ export default {
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        width: 15.8vw;
+        width: 18vw;
     }
 
     .arrow-wrapper {
@@ -209,10 +209,115 @@ export default {
         margin-top: auto;
     }
 
+    .arrow{
+        width: 2.5vw;
+    }
 
     .footer {
         margin-top: auto;
         width: 100%;
     }
+}
+
+@media(max-width:1550px) {
+
+.WIKI {
+    display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+.titlename {
+    padding: 40px 13.2vw;
+    font-size: 30px;
+}
+
+.block,
+.block2,
+.block3,
+.block4,
+.block5,
+.block6,
+.block7,
+.block8,
+.block9,
+.block10 {
+    background-size: 39vw 18.4vw;
+    width: 39vw;
+    height: 13vw;
+    margin-bottom: 30px;
+    margin-left: 1.6vw;
+}
+
+.h4 {
+    margin-top: 1.8vw;
+    margin-left: 2vw;
+    font-size: 20px;
+}
+
+.text {
+    position: absolute;
+    margin-top: 5.5vw;
+    margin-left: 2vw;
+    font-size: 16px;
+    width: 29.5vw;
+}
+
+
+.arrow{
+    width: 4.5vw;
+}
+
+}
+
+@media(max-width:760px) {
+
+.WIKI {
+    display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+.titlename {
+    padding: 40px 13.2vw;
+    font-size: 30px;
+}
+
+.block,
+.block2,
+.block3,
+.block4,
+.block5,
+.block6,
+.block7,
+.block8,
+.block9,
+.block10 {
+    background-size: 39vw 18.4vw;
+    width: 39vw;
+    height: 13vw;
+    margin-bottom: 30px;
+    margin-left: 1.6vw;
+}
+
+.h4 {
+    margin-top: 1.8vw;
+    margin-left: 2vw;
+    font-size: 20px;
+}
+
+.text {
+    position: absolute;
+    margin-top: 5.5vw;
+    margin-left: 2vw;
+    font-size: 16px;
+    width: 29.5vw;
+}
+
+
+.arrow{
+    width: 4.5vw;
+}
+
 }
 </style>
