@@ -1,32 +1,32 @@
 <template>
-<header class="header">
-    <HeaderComponent/>
-</header>
-<div class="map">
-    <h2 class="h2">Карта</h2>
-    <buton class="map1">Глобальная карта</buton>
-    <buton class="map2">Территории группировок</buton>
-    <buton class="map3">Дома</buton>
-    <iframe class="serwermap" 
-    src="https://mapgenie.io/grand-theft-auto-san-andreas/maps/san-andreas"
-    width="1410px" 
-  height="798px" 
-  style="border:0;"
-    >
-    </iframe>
-</div>
-<footer class="footer">
-    <FooterComponent/>
-</footer>
+    <div class="map">
+        <header class="header">
+            <HeaderComponent />
+        </header>
+        <div class="content">
+            <h2 class="h2">Карта</h2>
+            <div class="buttons">
+                <buton class="map1">Глобальная карта</buton>
+                <buton class="map2">Территории группировок</buton>
+                <buton class="map3">Дома</buton>
+            </div>
+            <iframe class="serwermap" src="https://mapgenie.io/grand-theft-auto-san-andreas/maps/san-andreas"
+                style="border:0;">
+            </iframe>
+        </div>
+        <footer class="footer">
+            <FooterComponent />
+        </footer>
+    </div>
 </template>
 
 <script>
 import HeaderComponent from '@/components/Header.vue';
 import FooterComponent from '@/components/Footer.vue';
 
-export default{
-    name:'Map',
-    components:{
+export default {
+    name: 'Map',
+    components: {
         HeaderComponent,
         FooterComponent
     },
@@ -34,76 +34,174 @@ export default{
 </script>
 
 <style scoped>
-.header {
-    left: 255px;
-  z-index: 1;
+@media (max-width:4200px) {
+    .map {
+        min-height: 100vh;
+    }
+
+    .header {
+        padding-top: 30px;
+        margin-left: 6.6vw;
+    }
+
+    .content {
+        display: block;
+    }
+
+    .h2 {
+        margin-top: 40px;
+        margin-left: 13vw;
+        color: var(--variable-collection-white);
+        font-family: "Balsamiq Sans";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 8px;
+    }
+
+    .buttons {
+        margin-top: 40px;
+        display: flex;
+        margin-left: 13vw;
+    }
+
+    .map1,
+    .map2,
+    .map3 {
+        color: var(--variable-collection-white);
+        font-family: "IBM Plex Sans";
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+        border: 2px solid var(--variable-collection-orange);
+        padding: 0.7vw 1.6vw;
+        border-radius: 20px;
+        margin-left: 10px;
+    }
+
+    .map1:active,
+    .map2:active,
+    .map3:active {
+        background-color: var(--variable-collection-orange);
+    }
+
+    .serwermap {
+        margin-top: 20px;
+        margin-left: 13vw;
+        width: 73.4vw;
+        height: 41.6vw;
+        border: 0;
+        margin-bottom: 90px;
+    }
+
+    .footer {
+        margin-top: auto;
+        width: 100%;
+    }
+}
+@media (max-width:1000px) {
+    .map {
+        min-height: 100vh;
+    }
+
+    .header {
+        padding-top: 30px;
+        margin-left: 4.9vw;
+    }
+
+    .content {
+        display: block;
+    }
+
+    .h2 {
+        margin-left: 9.7vw;
+        font-size: 30px;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        display: flex;
+        margin-left: 9vw;
+    }
+
+    .map1,
+    .map2,
+    .map3 {
+        font-size: 18px;
+        padding: 1.2vw 3.2vw;
+        border-radius: 15px;
+        margin-left: 10px;
+    }
+
+    .serwermap {
+        margin-top: 20px;
+        margin-left: 9.7vw;
+        width: 80.5vw;
+        height: 95.8vw;
+        border: 0;
+        margin-bottom: 90px;
+    }
+
+    .footer {
+        margin-top: auto;
+        width: 100%;
+    }
+}
+@media (max-width:650px) {
+    .map {
+        min-height: 100vh;
+    }
+
+    .header {
+        padding-top: 30px;
+        margin-left: 3.6vw;
+    }
+
+    .content {
+        display: block;
+    }
+
+    .h2 {
+        margin-left: 7.1vw;
+        font-size: 20px;
+    }
+
+    .buttons {
+    margin-top: 20px;
+    margin-left: 7.1vw;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
-.footer {
-  position: absolute;
-  width: 100%;
-  top: 1060px;
-  z-index: 1;
-  background-color: #1C1920;
-}
-
-.h2{
-    color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-Medium", Helvetica;
-    font-size: 35px;
-    font-weight: 500;
-    letter-spacing: 0;
-    line-height: 49px;
+.map1,
+.map2,
+.map3 {
+    font-size: 16px;
+    padding: 1.4vw 4.3vw;
+    border-radius: 15px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
     white-space: nowrap;
-    position: absolute;
-    left: 255px;
-    top:80px;
 }
 
-.map1, .map2, .map3 { 
-    color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-Medium", Helvetica;
-    font-size: 22px;
-    font-weight: 400; 
-    letter-spacing: 0; 
-    line-height: 32px; 
-    white-space: nowrap; 
-    text-align: center;
-    padding: 14px 30px; 
-    background-color: #1C1920; 
-    border:2px solid var(--variable-collection-orange); 
-    border-radius: 20px;
-    cursor: pointer; 
-    transition: background-color 0.3s; 
-    position: absolute;
-    top: 120px;
-}
+    .serwermap {
+        margin-top: 20px;
+        margin-left: 7.1vw;
+        width: 85.7vw;
+        height: 145.1vw;
+        border: 0;
+        margin-bottom: 90px;
+    }
 
-.map1{
-    margin:40px 255px ;
-    width: 243px; 
-    height: 60px; 
-}
-.map2{
-    margin:40px 508px ;
-    width: 323px; 
-    height: 60px; 
-}
-.map3{
-    margin:40px 841px ;
-    width: 126px; 
-    height: 60px; 
-    padding: 15px 35px;
-}
-
-.map1:hover, .map2:hover, .map3:hover {
-    background-color: var(--variable-collection-orange);
-}
-
-.serwermap{
-    margin-top: 177px;
-    margin-bottom: 20px;
-    max-width: 100%; 
-    margin-left:255px ;
+    .footer {
+        margin-top: auto;
+        width: 100%;
+    }
 }
 </style>
