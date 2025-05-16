@@ -305,7 +305,7 @@ export default {
   }
 
   .h1 {
-    font-family: "Balsamiq Sans-Bold", Helvetica;
+    font-family: "Balsamiq Sans";
     font-size: 50px;
     font-weight: 700;
     letter-spacing: 8px;
@@ -317,7 +317,7 @@ export default {
   .descript {
     margin-top: 20px;
     color: #ececec;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-family: "IBM Plex Sans";
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 0px;
@@ -334,7 +334,7 @@ export default {
     border-radius: 20px;
     background-color: var(--variable-collection-orange);
     color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-family: "IBM Plex Sans";
     font-size: 22px;
     font-weight: 400;
     letter-spacing: 0px;
@@ -356,7 +356,7 @@ export default {
   .online-text {
     margin-top: 3px;
     color: #b5b5b5;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-family: "IBM Plex Sans";
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 0px;
@@ -367,7 +367,7 @@ export default {
     margin-top: 1px;
     margin-left: 10px;
     color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-Medium", Helvetica;
+    font-family: "IBM Plex Sans";
     font-size: 22px;
     font-weight: 500;
     letter-spacing: 0px;
@@ -468,7 +468,7 @@ export default {
 
   .h2 {
     color: var(--variable-collection-white);
-    font-family: "Balsamiq Sans-Bold", Helvetica;
+    font-family: "Balsamiq Sans";
     font-size: 40px;
     font-weight: 700;
     letter-spacing: 8px;
@@ -485,7 +485,7 @@ export default {
     border-radius: 20px;
     background-color: var(--variable-collection-orange);
     color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-family: "IBM Plex Sans";
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 0px;
@@ -500,7 +500,7 @@ export default {
 
   .h3 {
     color: var(--variable-collection-white);
-    font-family: "Balsamiq Sans-Bold", Helvetica;
+    font-family: "Balsamiq Sans";
     font-size: 40px;
     font-weight: 700;
     letter-spacing: 8px;
@@ -531,7 +531,7 @@ export default {
   .h4 {
     padding: 27px 40px;
     color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-family: "IBM Plex Sans";
     font-size: 25px;
     font-weight: 600;
     letter-spacing: 0px;
@@ -542,7 +542,7 @@ export default {
   .h4descr {
     padding-left: 40px;
     color: #ececec;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-family: "IBM Plex Sans";
     font-size: 22px;
     font-weight: 400;
     letter-spacing: 0px;
@@ -616,7 +616,7 @@ export default {
 
   .question {
     color: var(--variable-collection-white);
-    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-family: "IBM Plex Sans";
     font-size: 22px;
     font-weight: 500;
     letter-spacing: 0px;
@@ -626,7 +626,7 @@ export default {
   .answer {
     margin-top: 20px;
     color: #ececec;
-    font-family: "IBM Plex Sans-Regular", Helvetica;
+    font-family: "IBM Plex Sans";
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 0px;

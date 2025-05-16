@@ -138,7 +138,7 @@ export default {
 
     .assortment {
         margin-top: 40px;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 25px;
         color: var(--variable-collection-white);
     }
@@ -146,7 +146,7 @@ export default {
     .course {
         color: var(--variable-collection-white);
         margin-top: 20px;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 18px;
         color: var(--variable-collection-white);
     }
@@ -163,7 +163,7 @@ export default {
         align-items: center;
         width: 20.6vw;
         font-size: 20px;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
     }
 
     .product {
@@ -177,7 +177,7 @@ export default {
 
     .replenishment {
         color: var(--variable-collection-white);
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 35px;
     }
 
@@ -193,7 +193,7 @@ export default {
         border: none;
         background-color: #201C25;
         color: #858585;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 18px;
         line-height: 21.6px;
         padding-left: 1.6vw;
@@ -213,7 +213,7 @@ export default {
     .checkp {
         margin-left: 2px;
         color: var(--variable-collection-white);
-        font-family: "IBM Plex Sans-Regular", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 16px;
         font-weight: 400;
         line-height: 19.2px;
@@ -276,7 +276,7 @@ export default {
         padding: 14px 1.8vw;
         background-color: var(--variable-collection-orange);
         color: var(--variable-collection-white);
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 22px;
         border: none;
     }
@@ -319,7 +319,7 @@ export default {
 
     .assortment {
         margin-top: 40px;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 25px;
         color: var(--variable-collection-white);
     }
@@ -327,7 +327,7 @@ export default {
     .course {
         color: var(--variable-collection-white);
         margin-top: 20px;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 18px;
         color: var(--variable-collection-white);
     }
@@ -344,7 +344,7 @@ export default {
         align-items: center;
         width: 72.7vw;
         font-size: 20px;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
     }
 
     .product {
@@ -358,7 +358,7 @@ export default {
 
     .replenishment {
         color: var(--variable-collection-white);
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 35px;
     }
 
@@ -377,7 +377,7 @@ export default {
         border: none;
         background-color: #201C25;
         color: #858585;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 18px;
         line-height: 21.6px;
         padding-left: 1.6vw;
@@ -397,7 +397,7 @@ export default {
     .checkp {
         margin-left: 5px;
         color: var(--variable-collection-white);
-        font-family: "IBM Plex Sans-Regular", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 16px;
         font-weight: 400;
         line-height: 19.2px;
@@ -460,7 +460,7 @@ export default {
         padding: 14px 1.8vw;
         background-color: var(--variable-collection-orange);
         color: var(--variable-collection-white);
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 22px;
         border: none;
     }
@@ -503,7 +503,7 @@ export default {
 
     .assortment {
         margin-top: 40px;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 20px;
         color: var(--variable-collection-white);
     }
@@ -511,7 +511,7 @@ export default {
     .course {
         color: var(--variable-collection-white);
         margin-top: 20px;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 16px;
         color: var(--variable-collection-white);
     }
@@ -528,7 +528,7 @@ export default {
         align-items: center;
         width: 72.7vw;
         font-size: 15px;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
     }
 
     .product {
@@ -542,7 +542,7 @@ export default {
 
     .replenishment {
         color: var(--variable-collection-white);
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 20px;
         font-weight: 700;
     }
@@ -562,7 +562,7 @@ export default {
         border: none;
         background-color: #201C25;
         color: #858585;
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 18px;
         line-height: 21.6px;
         padding-left: 1.6vw;
@@ -582,7 +582,7 @@ export default {
     .checkp {
         margin-left: 5px;
         color: var(--variable-collection-white);
-        font-family: "IBM Plex Sans-Regular", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 14px;
         font-weight: 400;
         line-height: 19.2px;
@@ -645,7 +645,7 @@ export default {
         padding: 14px 1.8vw;
         background-color: var(--variable-collection-orange);
         color: var(--variable-collection-white);
-        font-family: "IBM Plex Sans", Helvetica;
+        font-family: "IBM Plex Sans";
         font-size: 22px;
         border: none;
     }
