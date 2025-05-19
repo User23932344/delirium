@@ -48,11 +48,8 @@
             <p class="bd">${{ car.price }}</p>
           </div>
         </div>
-
       </div>
     </div>
-
-
     <div class="pagination">
       <template v-for="page in paginationRange" :key="page">
         <button class="btn" v-if="page !== '...'" @click="changePage(page)" :class="{ active: currentPage === page }">
@@ -423,9 +420,219 @@ onMounted(fetchTransport);
     line-height: 120%;
     cursor: default;
   }
+
+  .footer{
+    margin-top: 90px;
+  }
 }
 
-@media (max-width:1000px) {}
+@media (max-width:1550px) {
+  .header {
+    margin-left: 4.8vw;
+  }
 
-@media (max-width:650px) {}
+  .title {
+    margin-left: 9.7vw;
+  }
+
+  .search {
+    margin-top: 20px;
+    margin-left: 9.7vw;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .category-scroll {
+    min-width: 80.4vw;
+  }
+
+  .category-button{
+    height: 50px;
+    padding: 8px 1.9vw 10px 1.9vw;
+  }
+
+  .search-input {
+    width: 80.5vw;
+    height: 50px;
+    padding-left: 9.1vw;
+  }
+
+  .transport-list {
+    margin-left: 9.7vw;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.6vw;
+  }
+
+  .transport-card {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    border-radius: 30px;
+    flex-direction: row;
+    width: 38.9vw;
+    padding: 2.6vw;
+  }
+
+  .car-image{
+    width: 34vw;
+  }
+
+  .table {
+    width: 34vw;
+    display: flex;
+    margin-top: 1vw;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .table-cell {
+    text-align: start;
+    width: 5vw;
+  }
+
+  .title-cell {
+    width: 34vw;
+  }
+
+  .p {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .bd {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+
+  .pagination {
+    margin-top: 40px;
+    margin-left: 45vw;
+  }
+
+  .btn {
+    margin-right: 1vw;
+    padding: 0.5vw;
+    color: var(--variable-collection-white);
+    font-family: "IBM Plex Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    padding: auto;
+    background: none;
+    border: none;
+  }
+
+  .btn.active {
+    background-color: var(--variable-collection-orange);
+    min-width: 2.3vw;
+    min-height: 2.3vw;
+    padding: 0.5vw;
+    border-radius: 10px;
+  }
+
+  .dots {
+    color: var(--variable-collection-white);
+    font-family: "IBM Plex Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    cursor: default;
+  }
+}
+
+@media (max-width:630px) {
+  .header {
+    margin-left: 3.6vw;
+  }
+
+  .title {
+    margin-left: 7.1vw;
+    font-size: 20px;
+  }
+
+  .search {
+    margin-top: 20px;
+    margin-left: 7.1vw;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .category-scroll {
+    min-width: 85.7vw;
+  }
+
+  .category-button{
+    height: 45px;
+    padding: 8px 1.9vw 10px 1.9vw;
+  }
+
+  .search-input {
+    width: 85.7vw;
+    height: 45px;
+    padding-left: 9.1vw;
+  }
+
+  .transport-list {
+    margin-left: 7.1vw;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.6vw;
+  }
+
+  .transport-card {
+    flex-wrap: wrap;
+    margin-top: 20px;
+    border-radius: 30px;
+    flex-direction: row;
+    width: 85.7vw;
+    padding: 2.6vw;
+  }
+
+  .car-image{
+    width: 85.7vw;
+  }
+
+  .table {
+    width: 83vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .table-cell {
+    text-align: start;
+    width: 5vw;
+  }
+
+  .title-cell {
+    width: 85vw;
+  }
+
+  .p {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .bd {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+
+  .pagination {
+    margin-top: 30px;
+    margin-left: 40vw;
+  }
+
+  .btn {
+    margin-right: 1.6vw;
+    padding: 1.5vw ;
+  }
+}
 </style>
