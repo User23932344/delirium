@@ -25,36 +25,43 @@
     <div v-else-if="error" class="error">{{ error }}</div>
     <div v-else class="transport-list">
       <div v-for="car in paginatedCars" :key="car.id" class="transport-card">
-        <img :src="getImagePath(car.image)" :alt="car.name" class="car-image" />
-        <div class="table-header">
-          <p class="p">Наименование:</p>
-          <p class="p">Багажник:</p>
-          <p class="p">Скорость:</p>
-          <p class="p">Количество:</p>
-          <p class="p">Стоимость:</p>
+        <img :src="car.model_url" :alt="car.title" class="car-image" />
+        <div class="table">
+          <div class="table-cell title-cell">
+            <p class="p">Наименование:</p>
+            <p class="bd">{{ car.title }}</p>
+          </div>
+          <div class="table-cell">
+            <p class="p">Объём бака:</p>
+            <p class="bd">{{ car.tank_size }} л</p>
+          </div>
+          <div class="table-cell">
+            <p class="p">Скорость:</p>
+            <p class="bd">{{ car.speed }} км/ч</p>
+          </div>
+          <div class="table-cell">
+            <p class="p">Количество:</p>
+            <p class="bd">{{ car.count }} шт</p>
+          </div>
+          <div class="table-cell">
+            <p class="p">Стоимость:</p>
+            <p class="bd">${{ car.price }}</p>
+          </div>
         </div>
-        <div class="table-values">
-          <p class="bd">{{ car.name }}</p>
-          <p class="bd">{{ car.trunk_capacity }} кг</p>
-          <p class="bd">{{ car.speed }} км/ч</p>
-          <p class="bd">{{ car.quantity }} шт</p>
-          <p class="bd">${{ car.price }}</p>
-        </div>
+
       </div>
     </div>
 
-    <div class="pagination">
-      <button class="btn" @click="changePage(currentPage - 1)" :disabled="currentPage === 1">Назад</button>
 
+    <div class="pagination">
       <template v-for="page in paginationRange" :key="page">
         <button class="btn" v-if="page !== '...'" @click="changePage(page)" :class="{ active: currentPage === page }">
           {{ page }}
         </button>
         <span v-else class="dots">...</span>
       </template>
-
-      <button class="btn" @click="changePage(currentPage + 1)" :disabled="currentPage === totalPages">Вперед</button>
     </div>
+
   </div>
 
   <footer class="footer">
@@ -79,16 +86,83 @@ const categories = [
   "Вертолет/Самолет",
   "Легковая",
   "Грузовая",
+  "Спецтехника",
   "Мотоцикл",
   "Лодки",
   "Трейлеры"
 ];
 
+const categoryMapping = {
+  1: "Легковая",
+  2: "Грузовая",
+  3: "Спецтехника",
+  4: "Мотоцикл",
+  5: "Лодки",
+  6: "Трейлеры",
+  7: "Грузовая",
+  8: "Вертолет/Самолет"
+};
+
+const keywordMap = {
+  "спорткар": ["sport", "coupe", "supercar", "gt"],
+  "скорая": ["ambulance", "emergency"],
+  "байк": ["motorcycle", "bike"],
+  "трактор": ["tractor"],
+  "грузовик": ["truck", "lorry"],
+  "джип": ["jeep", "suv"],
+  "пожарная": ["firetruck", "fire engine"],
+  "лодка": ["boat"],
+  "самолет": ["airplane", "plane"],
+  "вертолет": ["helicopter"],
+};
+
+const typeFixMap = {
+  2: 4,
+  5: 6,
+  6: 5
+};
+
 const fetchTransport = async () => {
+  loading.value = true;
   try {
-    const response = await fetch("http://localhost:3000/transport");
+    const response = await fetch("https://test-delirium.hellishworld.ru/api/vehicle?limit=200");
     if (!response.ok) throw new Error("Ошибка загрузки данных");
-    cars.value = await response.json();
+
+    const result = await response.json();
+
+    cars.value = result.data.map(car => {
+      const fixedType = typeFixMap[car.type] !== undefined ? typeFixMap[car.type] : car.type;
+      let category = categoryMapping[fixedType] || "Прочее";
+      const title = car.title?.toLowerCase() || "";
+
+      if (
+        car.type === 8 ||
+        title.includes("helicopter") ||
+        title.includes("airplane") ||
+        title.includes("вертолет") ||
+        title.includes("самолет")
+      ) {
+        category = "Вертолет/Самолет";
+      }
+
+      if (category === "Грузовая") {
+        if (
+          title.includes("sedan") || title.includes("coupe") || title.includes("hatchback") ||
+          title.includes("cabrio") || title.includes("convertible") || title.includes("wagon") ||
+          title.includes("passenger") || title.includes("tourer") || title.includes("saloon") ||
+          title.includes("минивен") || (title.includes("van") && !title.includes("box")) ||
+          title.includes("седан") || title.includes("купе") || title.includes("хэтчбек") ||
+          title.includes("кабриолет") || title.includes("универсал") || title.includes("пассажир")
+        ) {
+          category = "Легковая";
+        }
+      }
+
+      return {
+        ...car,
+        category
+      };
+    });
   } catch (err) {
     error.value = err.message;
   } finally {
@@ -101,12 +175,30 @@ const setCategory = (category) => {
 };
 
 const filteredCars = computed(() => {
+  const query = searchQuery.value.toLowerCase().trim();
+  const keywordMatches = [];
+
+  Object.entries(keywordMap).forEach(([keyword, terms]) => {
+    if (query.includes(keyword)) {
+      keywordMatches.push(...terms);
+    }
+  });
+
   return cars.value.filter(car => {
-    const matchesSearch = car.name.toLowerCase().includes(searchQuery.value.toLowerCase());
-    const matchesCategory = selectedCategory.value ? car.category === selectedCategory.value : true;
+    const title = car.title.toLowerCase();
+
+    const matchesSearch = query
+      ? title.includes(query) || keywordMatches.some(term => title.includes(term))
+      : true;
+
+    const matchesCategory = selectedCategory.value
+      ? car.category === selectedCategory.value
+      : true;
+
     return matchesSearch && matchesCategory;
   });
 });
+
 
 const totalPages = computed(() => Math.ceil(filteredCars.value.length / carsPerPage));
 
@@ -121,34 +213,44 @@ const changePage = (page) => {
   }
 };
 
-const getImagePath = (path) => {
-  return `http://localhost:3000/images/${path}`;
-};
-
 const paginationRange = computed(() => {
   const total = totalPages.value;
   const current = currentPage.value;
+  const delta = 1;
   const range = [];
 
   if (total <= 7) {
-    for (let i = 1; i <= total; i++) range.push(i);
+    for (let i = 1; i <= total; i++) {
+      range.push(i);
+    }
   } else {
-    if (current > 3) range.push(1);
-    if (current > 4) range.push("...");
+    range.push(1);
 
-    const start = Math.max(2, current - 1);
-    const end = Math.min(total - 1, current + 1);
-    for (let i = start; i <= end; i++) range.push(i);
+    if (current > 2 + delta) {
+      range.push("...");
+    }
 
-    if (current < total - 3) range.push("...");
-    if (current < total - 2) range.push(total);
+    const start = Math.max(2, current - delta);
+    const end = Math.min(total - 1, current + delta);
+
+    for (let i = start; i <= end; i++) {
+      range.push(i);
+    }
+
+    if (current < total - (1 + delta)) {
+      range.push("...");
+    }
+
+    range.push(total);
   }
 
   return range;
 });
 
+
 onMounted(fetchTransport);
 </script>
+
 
 <style scoped>
 @media (max-width:4200px) {
@@ -242,9 +344,53 @@ onMounted(fetchTransport);
     margin-top: 20px;
   }
 
+  .transport-card {
+    display: flex;
+    align-items: center;
+    color: var(--variable-collection-white);
+  }
+
+  .table {
+    display: flex;
+    gap: 2vw;
+    margin-top: 1vw;
+  }
+
+  .table-cell {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    min-width: 100px;
+    text-align: end;
+  }
+
+  .title-cell {
+    width: 13.6vw;
+    text-align: start;
+  }
+
+  .p {
+    color: #717171;
+    font-family: "IBM Plex Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .bd {
+    color: var(--variable-collection-white);
+    font-family: "IBM Plex Sans";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+
   .pagination {
     margin-top: 40px;
-    margin-left: 13vw;
+    margin-left: 45vw;
   }
 
   .btn {
@@ -260,12 +406,22 @@ onMounted(fetchTransport);
     border: none;
   }
 
-  .btn:active {
+  .btn.active {
     background-color: var(--variable-collection-orange);
     min-width: 2.3vw;
     min-height: 2.3vw;
     padding: 0.5vw;
     border-radius: 10px;
+  }
+
+  .dots {
+    color: var(--variable-collection-white);
+    font-family: "IBM Plex Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    cursor: default;
   }
 }
 
