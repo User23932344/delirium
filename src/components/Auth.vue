@@ -50,18 +50,17 @@ const close = () => {
 
 const login = async () => {
   try {
-    const response = await fetch("http://localhost:3000/users/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ login: username.value, password: password.value }),
-    });
+    const mockResponse = {
+      ok: true,
+      json: async () => ({ userId: 123 })
+    };
 
+    const response = mockResponse;
     const data = await response.json();
-    if (response.ok) {
-      userId.value = data.userId;  // Сохраняем ID пользователя
 
-      // Сохраняем ID в localStorage
-      localStorage.setItem("userId", data.userId);  
+    if (response.ok) {
+      userId.value = data.userId;
+      localStorage.setItem("userId", data.userId);
 
       if (rememberMe.value) {
         localStorage.setItem("username", username.value);
@@ -71,9 +70,7 @@ const login = async () => {
         localStorage.removeItem("password");
       }
 
-      // Перенаправление на личный кабинет с ID пользователя
-      router.push(`/personalaccount/${data.userId}`);  // Перенаправляем с ID пользователя
-
+      router.push(`/personalaccount/${data.userId}`);
     } else {
       alert(data.error || "Ошибка авторизации");
     }
@@ -82,6 +79,7 @@ const login = async () => {
     alert("Произошла ошибка при подключении.");
   }
 };
+
 
 const sendRecoveryCode = async () => {
   try {
@@ -123,6 +121,7 @@ onMounted(() => {
 
   <style scoped>
   .modal-overlay {
+    z-index: 999999;
     position: fixed;
     top: 0;
     left: 0;

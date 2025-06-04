@@ -291,7 +291,7 @@ export default {
   }
 
   .header {
-    z-index: 1;
+    z-index: 99999;
   }
 
   .impression {

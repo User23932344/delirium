@@ -342,9 +342,14 @@ onMounted(fetchTransport);
   }
 
   .transport-card {
+    width: 73.4vw;
+    background-color: #19161D;
     display: flex;
     align-items: center;
     color: var(--variable-collection-white);
+    margin-bottom: 10px;
+    border-radius: 30px;
+    cursor: pointer;
   }
 
   .table {
