@@ -89,15 +89,15 @@
             <ul>
               <li class="element">
                 <p class="fieldname">Опыт</p>
-                <p class="variable">{{ userData?.experience ?? '—' }}</p>
+                <p class="variable">{{ userData?.experience ?? '—' }} xp</p>
               </li>
               <li class="element">
                 <p class="fieldname">Уровень</p>
-                <p class="variable">{{ userData?.achievement_points ?? '—' }}</p>
+                <p class="variable">{{ userData?.achievement_points ?? '—' }} LVL</p>
               </li>
               <li class="element">
                 <p class="fieldname">Деньги</p>
-                <p class="variable">{{ userData?.money ?? '—' }}</p>
+                <p class="variable">$ {{ userData?.money ?? '—' }}</p>
               </li>
               <li class="element">
                 <p class="fieldname">Человечность</p>
@@ -108,11 +108,45 @@
 
         </div>
         <div class="statistics">
+          <h4 class="h42">Статистика</h4>
+          <ul>
+            <li class="element2">
+              <p class="fieldname">Текущее выживание</p>
+              <p class="variable">{{ userData?.alife ?? '—' }}</p>
+            </li>
+            <li class="element2">
+              <p class="fieldname">Пройдено пешком</p>
+              <p class="variable">{{ userData?.walked ?? '—' }} м</p>
+            </li>
+            <li class="element2">
+              <p class="fieldname">Пройдено на транспорте</p>
+              <p class="variable">{{ userData?.driven ?? '—' }} м</p>
+            </li>
+            <li class="element2">
+              <p class="fieldname">Убито игроков</p>
+              <p class="variable">{{ userData?.players_killed ?? '—' }}</p>
+            </li>
+            <li class="element2">
+              <p class="fieldname">Выстрелы в голову</p>
+              <p class="variable">{{ userData?.headshots ?? '—' }}</p>
+            </li>
+            <li class="element2">
+              <p class="fieldname">Попаданий всего</p>
+              <p class="variable">{{ userData?.hits ?? '—' }}</p>
+            </li>
+          </ul>
 
         </div>
+        <div class="achievements">
+          <h4 class="h42">Достижения</h4>
+          <ul>
+            <li class="element2">
+              <p class="fieldname">This part is in progress</p>
+              <p class="variable"></p>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="achievements"></div>
-      <div class="progress"></div>
     </div>
 
   </div>
@@ -374,6 +408,65 @@ onMounted(() => {
     margin-bottom: 90px;
   }
 
+  .data {
+    margin-left: 13vw;
+    margin-top: 20px;
+    margin-bottom: 90px;
+  }
+
+  .block {
+    display: flex;
+    gap: 1.5vw;
+  }
+
+
+
+  .h4,
+  .h42 {
+    color: var(--variable-collection-white);
+    font-family: Ubuntu;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    background-color: var(--variable-collection-orange);
+    border-radius: 15px;
+    width: 35.9vw;
+    height: 60px;
+    padding-left: 15.6vw;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .h42 {
+    width: 73.4vw;
+    margin-top: 40px;
+    padding-left: 34.7vw;
+  }
+
+  .element,
+  .element2 {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.20);
+  }
+
+  .element2 {
+    width: 73.4vw;
+  }
+
+  .fieldname,
+  .variable {
+    color: var(--variable-collection-white);
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+    padding: 2vw 20px;
+  }
 
   .footer {
     margin-top: auto;
