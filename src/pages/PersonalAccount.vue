@@ -472,6 +472,248 @@ onMounted(() => {
     margin-top: auto;
     width: 100%;
   }
+}
 
+@media(max-width:1420px) {
+
+  .header {
+    padding-top: 25px;
+    margin-left: 4.5vw;
+  }
+
+  .account {
+    min-height: 100vh;
+    background-color: #19161D;
+  }
+
+  .h2 {
+    margin-left: 9.1vw;
+    font-size: 30px;
+  }
+
+  .btns {
+    margin-left: 9.1vw;
+  }
+
+  .btn {
+    width: 18.4vw;
+    height: 50px;
+    margin-right: 1.2vw;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+    .box,
+    .boxl {
+      width: 80.5vw;
+      margin-top: 20px;
+      margin-left: 9.1vw;
+      padding: 3.8vw;
+    }
+
+    .post {
+      width: 72.7vw;
+      border-radius: 15px;
+      padding-left: 3.8vw;
+    }
+
+    .change {
+      width: 72.7vw;
+      border-radius: 15px;
+      font-size: 20px;
+    }
+
+    .data {
+      margin-left: 9.1vw;
+    }
+
+    .block {
+      display: block;
+    }
+
+    .h4,
+    .h42 {
+      width: 80.5vw;
+      height: 50px;
+      padding-left: 36.5vw;
+      padding-top: 13px;
+      padding-bottom: 13px;
+      margin-top: 30px;
+    }
+
+    .h42 {
+      width: 80.5vw;
+    }
+
+    .element,.element2 {
+      width: 80.5vw;
+    }
+
+
+    .footer {
+      margin-top: auto;
+      width: 100%;
+    }
+  }
+  @media(max-width:590px) {
+  .header {
+    padding-top: 25px;
+    margin-left: 7.1vw;
+  }
+
+  .account {
+    min-height: 100vh;
+    background-color: #19161D;
+    ;
+  }
+
+  .h2 {
+    margin-left: 7.1vw;
+    margin-top: 30px;
+    font-size: 20px;
+    letter-spacing: 6px;
+  }
+
+  .btns {
+    margin-left: 7.1vw;
+  }
+
+  .btn {
+    width: 34.9vw;
+    height: 40px;
+    margin-right: 2.9vw;
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 15px;
+  }
+
+  .box,
+  .boxl {
+    background-color: #1C1920;
+    border-radius: 30px;
+    width: 85.7vw;
+    margin-top: 20px;
+    margin-left:7.1vw;
+    padding: 5.7vw;
+  }
+
+  .h3 {
+    font-size: 20px;
+  }
+
+  .post {
+    width: 74.2vw;
+    height: 45px;
+    border-radius: 15px;
+    padding-top: 13px;
+    padding-bottom: 14px;
+    padding-left: 5.7vw;
+    font-size: 15px;
+  }
+
+  .change {
+    width: 74.2vw;
+    height: 45px;
+    border-radius: 15px;
+    font-size: 16px;
+  }
+
+  .eye,
+  .eye2,
+  .eye3 {
+    position: absolute;
+    margin-left: 65vw;
+    cursor: pointer;
+  }
+
+  .eye {
+    margin-top: 37px;
+  }
+
+  .eye2 {
+    margin-top: 102px;
+  }
+
+  .eye3 {
+    margin-top: 166px;
+  }
+
+  .p {
+    font-size: 14px;
+    white-space: wrap;
+    margin-top: 20px;
+  }
+
+
+  .checkbox-container {
+    margin-left: 5.7vw;
+    display: block;
+  }
+
+  .checkp {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  label::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--variable-collection-orange);
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: transparent;
+    transition: background 0.3s, border 0.3s;
+  }
+
+  .boxl {
+    margin-bottom: 90px;
+  }
+
+  .data {
+    margin-left: 7.1vw;
+    margin-top: 20px;
+    margin-bottom: 90px;
+  }
+
+  .block {
+    display: block;
+  }
+
+
+
+  .h4,
+  .h42 {
+    font-size: 16px;
+    border-radius: 15px;
+    width: 84.5vw;
+    height: 40px;
+    padding-left: 34.2vw;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .element,
+  .element2 {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.20);
+  }
+
+  .element2 {
+    width: 84.5vw;
+  }
+
+  .fieldname,
+  .variable {
+    font-size: 14px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .footer {
+    margin-top: auto;
+    width: 100%;
+  }
 }
 </style>
