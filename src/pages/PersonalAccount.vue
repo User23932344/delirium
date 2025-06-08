@@ -223,7 +223,6 @@ onMounted(() => {
   .account {
     min-height: 100vh;
     background-color: #19161D;
-    ;
   }
 
   .h2 {
@@ -709,11 +708,6 @@ onMounted(() => {
     font-size: 14px;
     padding-top: 15px;
     padding-bottom: 15px;
-  }
-
-  .footer {
-    margin-top: auto;
-    width: 100%;
   }
 }
 </style>
