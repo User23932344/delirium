@@ -45,7 +45,7 @@ import discord from '@/assets/discord.svg';
 import logo from '@/assets/logo.svg'; 
 
 export default {
-  name: 'Component',
+  name: 'FooterComponent',
   data() {
     return {
       logo, 

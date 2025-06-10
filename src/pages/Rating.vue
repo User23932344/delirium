@@ -4,20 +4,21 @@
   </header>
   <div class="rating">
     <h2 class="h2">СПИСОК ИГРОКОВ</h2>
+
     <div class="menu">
       <button class="gamers" :class="{ active: activeSort === 'gamers' }" @click="setActiveSort('gamers')">
         Игроки
       </button>
 
       <div class="select">
-        <select class="filter" v-model="sortSurvival">
+        <select class="filter" :class="{ active: activeSort === sortSurvival }" v-model="sortSurvival">
           <option disabled hidden value="">Время выживания</option>
           <option value="general">Общее время</option>
           <option value="now">Текущее время</option>
           <option value="attempt">Время одной жизни</option>
         </select>
 
-        <select class="filter" v-model="sortCombat">
+        <select class="filter" :class="{ active: activeSort === sortCombat }" v-model="sortCombat">
           <option disabled hidden value="">Боевые навыки</option>
           <option value="hits">Попадания</option>
           <option value="headshots">Попадания в голову</option>
@@ -25,7 +26,7 @@
           <option value="pvp_score">Победы на PVP-арене</option>
         </select>
 
-        <select class="filter" v-model="sortStats">
+        <select class="filter" :class="{ active: activeSort === sortStats }" v-model="sortStats">
           <option disabled hidden value="">Статистика</option>
           <option value="experience">Опыт</option>
           <option value="money">Деньги</option>
@@ -35,57 +36,240 @@
       </div>
     </div>
 
+    <div v-if="activeSort === 'gamers'">
+      <div v-if="loading">Загрузка игроков...</div>
+      <div v-else-if="error">{{ error }}</div>
+      <table v-else class="players-table">
+        <thead>
+          <tr>
+            <th class="name">Онлайн</th>
+            <th class="name">Ник</th>
+            <th class="name">Активность</th>
+            <th class="name">Уровень</th>
+            <th class="name">Группировка</th>
+            <th class="name">Ранг</th>
+            <th class="name">Человечность</th>
+            <th class="name">Заточение</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="player in paginatedPlayers" :key="player.id">
+            <td class="variable">{{ player.is_online ? '🟧' : '🔲' }}</td>
+            <td class="variable">{{ player.login }}</td>
+            <td class="variable">{{ player.leave_time }}</td>
+            <td class="variable">{{ Math.floor(player.experience / 10000) }}</td>
+            <td class="variable">-</td>
+            <td class="variable">-</td>
+            <td class="variable">{{ player.humanity }}</td>
+            <td class="variable">{{ player.ice > 0 ? 'В заточении' : 'Свободен' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination">
+
+        <button v-if="currentPage > 3" @click="goToPage(1)">1</button>
+        <span v-if="currentPage > 4">...</span>
+
+        <button v-for="page in visiblePages" :key="page" @click="goToPage(page)" :class="{ active: currentPage === page }">
+          {{ page }}
+        </button>
+
+        <span v-if="currentPage < totalPages - 3">...</span>
+        <button v-if="currentPage < totalPages - 2" @click="goToPage(totalPages)">{{ totalPages }}</button>
+
+      </div>
+    </div>
+
+    <div v-else>
+      <table class="players-table">
+        <thead>
+          <tr>
+            <th class="name">Игрок</th>
+            <th class="name">
+              {{
+                displayedCategory === 'experience' ? 'Опыт' :
+                displayedCategory === 'money' ? 'Деньги' :
+                displayedCategory === 'walked' ? 'Пройдено пешком' :
+                displayedCategory === 'driven' ? 'Проехал на транспорте' :
+                displayedCategory === 'hits' ? 'Попадания' :
+                displayedCategory === 'headshots' ? 'Попадания в голову' :
+                displayedCategory === 'kills' ? 'Убийства' :
+                displayedCategory === 'pvp_score' ? 'PVP-победы' :
+                displayedCategory === 'general' ? 'Общее время' :
+                displayedCategory === 'now' ? 'Текущее время' :
+                displayedCategory === 'attempt' ? 'Время одной жизни' :
+                'Категория'
+              }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="player in paginatedPlayers" :key="player.id">
+            <td class="variable">{{ player.login }}</td>
+            <td class="variable">
+              {{
+                displayedCategory === 'kills' ? player.players_killed :
+                displayedCategory === 'general' ? formatTime(player.total_survival_time) :
+                displayedCategory === 'attempt' ? formatTime(player.alife) :
+                displayedCategory === 'now' ? formatTime(player.total_alife) :
+                player[displayedCategory]
+              }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+
   <footer class="footer">
     <FooterComponent />
   </footer>
 </template>
 
 <script setup>
-import { ref, watch, computed, onMounted } from "vue";
-import searchIcon from '@/assets/search.svg';
+import { ref, watch, onMounted, computed } from "vue";
 import HeaderComponent from "@/components/Header.vue";
 import FooterComponent from "@/components/Footer.vue";
-//оформление
-const activeSort = ref('gamers');
-const sortSurvival = ref('');
-const sortCombat = ref('');
-const sortStats = ref('');
+import axios from "axios";
 
-//запросы
+const baseUrl = "https://test-delirium.hellishworld.ru";
+const apiPlayers = `${baseUrl}/api/player`;
+
+const activeSort = ref("gamers");
+const sortSurvival = ref("");
+const sortCombat = ref("");
+const sortStats = ref("");
+
+const players = ref([]);
+const loading = ref(false);
+const error = ref(null);
+
+const displayedCategory = ref("");
+
+const currentPage = ref(1);
+const pageSize = 12;
+
+const totalPages = computed(() => Math.ceil(players.value.length / pageSize));
+
+const paginatedPlayers = computed(() => {
+  const start = (currentPage.value - 1) * pageSize;
+  return players.value.slice(start, start + pageSize);
+});
+
+const visiblePages = computed(() => {
+  const pages = [];
+  const start = Math.max(currentPage.value - 1, 1);
+  const end = Math.min(currentPage.value + 1, totalPages.value);
+  for (let i = start; i <= end; i++) pages.push(i);
+  return pages;
+});
+
+function goToPage(page) {
+  if (page >= 1 && page <= totalPages.value) currentPage.value = page;
+}
+
+const loadPlayers = async () => {
+  loading.value = true;
+  error.value = null;
+  try {
+    const response = await axios.get(apiPlayers);
+    const data = response.data.data || [];
+
+    players.value = data
+      .filter((p) => p.leave_time && p.leave_time.includes(" "))
+      .sort((a, b) => {
+        try {
+          const [dA, tA] = a.leave_time.split(" ");
+          const [dB, tB] = b.leave_time.split(" ");
+          const dateA = new Date(`${dA.split(".").reverse().join("-")}T${tA}`);
+          const dateB = new Date(`${dB.split(".").reverse().join("-")}T${tB}`);
+          return dateB - dateA;
+        } catch {
+          return 0;
+        }
+      });
+    currentPage.value = 1;
+  } catch {
+    error.value = "Ошибка загрузки игроков";
+  } finally {
+    loading.value = false;
+  }
+};
+
+watch(activeSort, (val) => {
+  if (val === "gamers") {
+    loadPlayers();
+  }
+});
 
 watch(sortSurvival, (val) => {
   if (val) {
     activeSort.value = val;
-    sortCombat.value = '';
-    sortStats.value = '';
+    displayedCategory.value = val;
+    sortCombat.value = "";
+    sortStats.value = "";
+    sortByCategory(val);
   }
 });
 
 watch(sortCombat, (val) => {
   if (val) {
     activeSort.value = val;
-    sortSurvival.value = '';
-    sortStats.value = '';
+    displayedCategory.value = val;
+    sortSurvival.value = "";
+    sortStats.value = "";
+    sortByCategory(val);
   }
 });
 
 watch(sortStats, (val) => {
   if (val) {
     activeSort.value = val;
-    sortSurvival.value = '';
-    sortCombat.value = '';
+    displayedCategory.value = val;
+    sortSurvival.value = "";
+    sortCombat.value = "";
+    sortByCategory(val);
   }
 });
 
 const setActiveSort = (val) => {
   activeSort.value = val;
-  sortSurvival.value = '';
-  sortCombat.value = '';
-  sortStats.value = '';
+  sortSurvival.value = "";
+  sortCombat.value = "";
+  sortStats.value = "";
 };
-</script>
 
+const sortByCategory = (field) => {
+  players.value.sort((a, b) => {
+    const valA = field === 'kills' ? a.players_killed :
+                 field === 'general' ? a.total_survival_time :
+                 field === 'attempt' ? a.alife :
+                 field === 'now' ? a.total_alife :
+                 a[field] ?? 0;
+    const valB = field === 'kills' ? b.players_killed :
+                 field === 'general' ? b.total_survival_time :
+                 field === 'attempt' ? b.alife :
+                 field === 'now' ? b.total_alife :
+                 b[field] ?? 0;
+    return (valB ?? 0) - (valA ?? 0);
+  });
+};
+
+const formatTime = (seconds) => {
+  if (!seconds || isNaN(seconds)) return '0с';
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = Math.floor(seconds % 60);
+  return `${h > 0 ? h + 'ч ' : ''}${m > 0 ? m + 'м ' : ''}${s}с`;
+};
+
+onMounted(() => {
+  if (activeSort.value === "gamers") {
+    loadPlayers();
+  }
+});
+</script>
 
 <style scoped>
 .header {
@@ -135,5 +319,93 @@ const setActiveSort = (val) => {
   line-height: 32px;
   padding: 14px 30px 14px 30px;
   cursor: pointer;
+}
+
+.active {
+  background-color: var(--variable-collection-orange);
+  border: none;
+}
+
+.players-table {
+  margin-left: 13vw;
+  margin-top: 20px;
+  width: 66.8vw;
+  border-collapse: collapse;
+}
+
+thead tr {
+  background-color: var(--variable-collection-orange);
+}
+
+.name {
+  font-size: 20px;
+  color: var(--variable-collection-white);
+  padding: 14px 10px;
+  border-right: 2px solid var(--variable-collection-orange);
+  border-left: 2px solid var(--variable-collection-orange);
+}
+
+thead tr th:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: none;
+}
+
+thead tr th:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: none;
+}
+
+tbody tr td:first-child {
+  text-align: center;
+}
+
+tbody tr td:nth-child(2) {
+  color: var(--variable-collection-orange);
+}
+
+.name,
+.variable {
+  color: var(--variable-collection-white);
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: start;
+}
+
+.variable {
+  font-size: 16px;
+  padding-left: 0.5vw;
+}
+
+.pagination {
+  margin-left: 13vw;
+  margin-top: 20px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-left: 45vw;
+  margin-top: 40px;
+}
+
+.pagination button {
+  padding: 6px 10px;
+  background: none;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: var(--variable-collection-orange);
+  border: none;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 </style>
