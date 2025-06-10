@@ -36,6 +36,11 @@
       </div>
     </div>
 
+    <div class="search-container" style="margin-left: 13vw; margin-top: 15px; display: flex; align-items: center;">
+      <img :src="Search" alt="search icon" class="search-icon" />
+      <input type="text" v-model="searchQuery" placeholder="Поиск " class="search-input" />
+    </div>
+
     <div v-if="activeSort === 'gamers'">
       <div v-if="loading">Загрузка игроков...</div>
       <div v-else-if="error">{{ error }}</div>
@@ -53,7 +58,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="player in paginatedPlayers" :key="player.id">
+          <tr v-for="player in paginatedFilteredPlayers" :key="player.id">
             <td class="variable">{{ player.is_online ? '🟧' : '🔲' }}</td>
             <td class="variable">{{ player.login }}</td>
             <td class="variable">{{ player.leave_time }}</td>
@@ -67,17 +72,18 @@
       </table>
 
       <div class="pagination">
-
         <button v-if="currentPage > 3" @click="goToPage(1)">1</button>
         <span v-if="currentPage > 4">...</span>
 
-        <button v-for="page in visiblePages" :key="page" @click="goToPage(page)" :class="{ active: currentPage === page }">
+        <button v-for="page in visiblePages" :key="page" @click="goToPage(page)"
+          :class="{ active: currentPage === page }">
           {{ page }}
         </button>
 
         <span v-if="currentPage < totalPages - 3">...</span>
-        <button v-if="currentPage < totalPages - 2" @click="goToPage(totalPages)">{{ totalPages }}</button>
-
+        <button v-if="currentPage < totalPages - 2" @click="goToPage(totalPages)">
+          {{ totalPages }}
+        </button>
       </div>
     </div>
 
@@ -89,31 +95,31 @@
             <th class="name">
               {{
                 displayedCategory === 'experience' ? 'Опыт' :
-                displayedCategory === 'money' ? 'Деньги' :
-                displayedCategory === 'walked' ? 'Пройдено пешком' :
-                displayedCategory === 'driven' ? 'Проехал на транспорте' :
-                displayedCategory === 'hits' ? 'Попадания' :
-                displayedCategory === 'headshots' ? 'Попадания в голову' :
-                displayedCategory === 'kills' ? 'Убийства' :
-                displayedCategory === 'pvp_score' ? 'PVP-победы' :
-                displayedCategory === 'general' ? 'Общее время' :
-                displayedCategory === 'now' ? 'Текущее время' :
-                displayedCategory === 'attempt' ? 'Время одной жизни' :
-                'Категория'
+                  displayedCategory === 'money' ? 'Деньги' :
+                    displayedCategory === 'walked' ? 'Пройдено пешком' :
+                      displayedCategory === 'driven' ? 'Проехал на транспорте' :
+                        displayedCategory === 'hits' ? 'Попадания' :
+                          displayedCategory === 'headshots' ? 'Попадания в голову' :
+                            displayedCategory === 'kills' ? 'Убийства' :
+                              displayedCategory === 'pvp_score' ? 'PVP-победы' :
+                                displayedCategory === 'general' ? 'Общее время' :
+                                  displayedCategory === 'now' ? 'Текущее время' :
+                                    displayedCategory === 'attempt' ? 'Время одной жизни' :
+                                      'Категория'
               }}
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="player in paginatedPlayers" :key="player.id">
+          <tr v-for="player in paginatedFilteredPlayers" :key="player.id">
             <td class="variable">{{ player.login }}</td>
             <td class="variable">
               {{
                 displayedCategory === 'kills' ? player.players_killed :
-                displayedCategory === 'general' ? formatTime(player.total_survival_time) :
-                displayedCategory === 'attempt' ? formatTime(player.alife) :
-                displayedCategory === 'now' ? formatTime(player.total_alife) :
-                player[displayedCategory]
+                  displayedCategory === 'general' ? formatTime(player.total_survival_time) :
+                    displayedCategory === 'attempt' ? formatTime(player.alife) :
+                      displayedCategory === 'now' ? formatTime(player.total_alife) :
+                        player[displayedCategory]
               }}
             </td>
           </tr>
@@ -129,6 +135,7 @@
 
 <script setup>
 import { ref, watch, onMounted, computed } from "vue";
+import Search from "@/assets/search.svg";
 import HeaderComponent from "@/components/Header.vue";
 import FooterComponent from "@/components/Footer.vue";
 import axios from "axios";
@@ -141,6 +148,8 @@ const sortSurvival = ref("");
 const sortCombat = ref("");
 const sortStats = ref("");
 
+const searchQuery = ref("");
+
 const players = ref([]);
 const loading = ref(false);
 const error = ref(null);
@@ -150,17 +159,42 @@ const displayedCategory = ref("");
 const currentPage = ref(1);
 const pageSize = 12;
 
-const totalPages = computed(() => Math.ceil(players.value.length / pageSize));
+const totalPages = computed(() =>
+  Math.ceil(filteredPlayers.value.length / pageSize)
+);
 
-const paginatedPlayers = computed(() => {
+const filteredPlayers = computed(() => {
+  if (!searchQuery.value.trim()) return players.value;
+  const lowerQuery = searchQuery.value.toLowerCase();
+  return players.value.filter((p) =>
+    p.login.toLowerCase().includes(lowerQuery)
+  );
+});
+
+const paginatedFilteredPlayers = computed(() => {
   const start = (currentPage.value - 1) * pageSize;
-  return players.value.slice(start, start + pageSize);
+  return filteredPlayers.value.slice(start, start + pageSize);
 });
 
 const visiblePages = computed(() => {
   const pages = [];
-  const start = Math.max(currentPage.value - 1, 1);
-  const end = Math.min(currentPage.value + 1, totalPages.value);
+  const total = totalPages.value;
+  let start = Math.max(currentPage.value - 1, 1);
+  let end = Math.min(currentPage.value + 1, total);
+
+  if (total <= 5) {
+    start = 1;
+    end = total;
+  } else {
+    if (currentPage.value <= 3) {
+      start = 1;
+      end = 5;
+    } else if (currentPage.value >= total - 2) {
+      start = total - 4;
+      end = total;
+    }
+  }
+
   for (let i = start; i <= end; i++) pages.push(i);
   return pages;
 });
@@ -233,6 +267,10 @@ watch(sortStats, (val) => {
   }
 });
 
+watch(searchQuery, () => {
+  currentPage.value = 1;
+});
+
 const setActiveSort = (val) => {
   activeSort.value = val;
   sortSurvival.value = "";
@@ -242,26 +280,36 @@ const setActiveSort = (val) => {
 
 const sortByCategory = (field) => {
   players.value.sort((a, b) => {
-    const valA = field === 'kills' ? a.players_killed :
-                 field === 'general' ? a.total_survival_time :
-                 field === 'attempt' ? a.alife :
-                 field === 'now' ? a.total_alife :
-                 a[field] ?? 0;
-    const valB = field === 'kills' ? b.players_killed :
-                 field === 'general' ? b.total_survival_time :
-                 field === 'attempt' ? b.alife :
-                 field === 'now' ? b.total_alife :
-                 b[field] ?? 0;
+    const valA =
+      field === "kills"
+        ? a.players_killed
+        : field === "general"
+          ? a.total_survival_time
+          : field === "attempt"
+            ? a.alife
+            : field === "now"
+              ? a.total_alife
+              : a[field] ?? 0;
+    const valB =
+      field === "kills"
+        ? b.players_killed
+        : field === "general"
+          ? b.total_survival_time
+          : field === "attempt"
+            ? b.alife
+            : field === "now"
+              ? b.total_alife
+              : b[field] ?? 0;
     return (valB ?? 0) - (valA ?? 0);
   });
 };
 
 const formatTime = (seconds) => {
-  if (!seconds || isNaN(seconds)) return '0с';
+  if (!seconds || isNaN(seconds)) return "0с";
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const s = Math.floor(seconds % 60);
-  return `${h > 0 ? h + 'ч ' : ''}${m > 0 ? m + 'м ' : ''}${s}с`;
+  return `${h > 0 ? h + "ч " : ""}${m > 0 ? m + "м " : ""}${s}с`;
 };
 
 onMounted(() => {
@@ -407,5 +455,28 @@ tbody tr td:nth-child(2) {
 .pagination button:disabled {
   opacity: 0.4;
   cursor: default;
+}
+
+.search-input {
+  width: 66.8vw;
+  height: 60px;
+  padding: 8px 1.6vw;
+  border-radius: 20px;
+  border: 2px solid #7e7e7e;
+  background: #19161d;
+  color: #7e7e7e;
+  font-family: "IBM Plex Sans";
+  font-size: 18px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #7e7e7e;
+}
+
+.search-icon{
+  position: absolute;
+  cursor: pointer;
+  margin-left: 64vw;
 }
 </style>
